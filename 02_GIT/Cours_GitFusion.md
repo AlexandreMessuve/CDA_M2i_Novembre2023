@@ -43,3 +43,20 @@ Si ces conflits ne sont pas voulus, **je peux annuler mon merge** grâce à l'op
 ```bash
 git merge --abort
 ```
+
+## Le `rebase`
+
+Il existe une autre méthode pour fusionner deux branches: le rebase
+
+* Le rebase réapplique séquentiellement chaque commit de la branche source sur **le dessus** de la branche de destination. Il "rejoue" l'historique des commits, ce qui donne l'apparence d'une ligne de temps linéaire et propre.
+* **Il ne crée pas de commits de fusion supplémentaire.** Les commits originaux de la branche sources sont réécrits avec de nouvelles valeurs de hachage.
+
+* Le rebase peut être utilisé pour garder l'historique des commits plus propre et plus linéaire, mais il peut réécrire l'historique des commits, ce qui peut causer des conflits si plusieurs contributeurs travaillent sur la même branche.
+
+* C'est une stratégie généralement recommandée pour les branches locales où vous voulez garder votre historique propre et pour intègrer régulièrement les mises à jour à la branche principale (main).
+
+**Attention**: Si je souhaite rebase une branche feature sur ma branche principale, je viendrai me placer sur ma branche feature et j'utiliserai la commande: 
+```bash
+git rebase main
+```
+S'il y a des conflits, Git vous demandera de les résoudre à mesure que commit est réappliqué.

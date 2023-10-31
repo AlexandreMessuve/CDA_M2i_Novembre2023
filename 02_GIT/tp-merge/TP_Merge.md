@@ -1,6 +1,6 @@
 ```bash
 # créer un repo Git
-git ini
+git init
 
 # Ajouter un fichier et le commiter
 git add fichier.txt
@@ -17,6 +17,5 @@ git commit -am "Ajout de texte sur le fichier.txt"
 git switch main
 
 git merge B1 --no-ff
-# ça utilise le fast forward car il ni a pas de conflit
 
 ```
