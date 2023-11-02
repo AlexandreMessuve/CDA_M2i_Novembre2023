@@ -60,3 +60,32 @@ Il existe une autre méthode pour fusionner deux branches: le rebase
 git rebase main
 ```
 S'il y a des conflits, Git vous demandera de les résoudre à mesure que commit est réappliqué.
+
+Par exemple, pour fusionner une branche de fonctionnalité (feature) sur une branche principale (main):
+
+1. Assurez-vous d'être sur la branche feature en utilisant un `git switch` ou `git checkout` :
+
+```bash
+git branch feature
+```
+
+2. Effectuez le rebase de la branche "feature" sur la branche "main" en utilisant la commande `git rebase`:
+
+```bash
+git rebase main
+```
+
+Cela réappliquera séquentiellement les commits de la branche "feature" sur la branche "main".
+
+3. Après avoir résolu les conflits et terminé le rebase, vous pouvez maintenant mettre à jour la branche "main" avec les modifications de la branche "feature" en utilisant une fusion rapide (fast-forward):
+
+```bash
+git switch main
+git merge feature
+```
+Etant donné que vous avez déjà réappliqué les commits de la branche "feature" sur "main" lors du rebase, cette fusion devrait être un fast-forward, ce qui signifie qu'aucun commit de fusion (merge commit) supplémentaire ne sera créé, et la branche "main" sera simplement mise à jour pour pointer sur le commit le plus récent de la branche "feature".
+
+## Conclusion: Quelle stratégie choisir ? 
+
+Le choix entre un merge et un rebase dépend de la manière dont vous souhaitez gérer l'historique des commits et des besoins spécifiques de votre flux de travail.  
+**Le merge est généralement recommandé pour les collaborations, tandis que le rebase est utile pour maintenir un historique linéaire et propre dans des branches locale.**
