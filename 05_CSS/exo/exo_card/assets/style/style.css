@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap');
+body {
+    background-color: #dfdfdf;
+}
+* {
+    font-family: 'Sora', sans-serif;
+}
+h1{
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 4em;
+}
+label{
+    display: inline-block;
+    font-weight: bold;
+}
+form{
+    margin-left: 1.2em;
+}
+input{
+    border-radius: 8px;
+}
+.card{
+    height: 3em;
+    width: 29em;
+}
+[for="cvv"]{
+    margin-left: 1.2em;
+}
+.cvv{
+    height: 3em;
+    width: 10em;
+}
+input[type='submit']{
+    margin-top: 2em;
+    margin-left: 13em;
+    color: white;
+    background-color: rgb(0, 110, 255);
+    border-radius: 5px;
+    padding: 1em;
+}
+input[type='submit']{
+    margin-top: 2em;
+    margin-left: 13em;
+    color: white;
+    background-color: rgb(0, 110, 255);
+    border-radius: 5px;
+    padding: 1em;
+}
+input[type='submit']:hover{
+    background-color: rgb(11, 101, 204);
+}
+#card{
+    box-shadow: 0px 0px 18px 12px rgba(0,0,0,0.11);
+    margin-left: 25%;
+    margin-top: 5%;
+    background-color: #FAFAF9;
+    border-radius: 7px;
+    height: 43em;
+    width: 27em;
+}
