@@ -14,3 +14,18 @@ label , input, select, textarea{
 fieldset > label:first-of-type, input:first-of-type, textarea:first-of-type{
 margin-top: 1em;
 }
+textarea{
+    resize: none;
+}
+input[type="submit"]{
+    background-color: #082AFF;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border-style: none;
+    padding: 0.5em;
+    margin-left: 53em;
+}
+input[type="submit"]:hover{
+    background-color: #5f74ff;
+}
