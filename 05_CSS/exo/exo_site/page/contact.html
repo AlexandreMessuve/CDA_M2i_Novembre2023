@@ -22,47 +22,45 @@
         </nav>
     </header>
     <main>
-        <div id="formulaire-container">
-            <form action="#" method="post">
-                <fieldset>
-                    <legend>Qui etes vous ?</legend>
-                    <label for="nom">Nom : </label>
-                    <input name="nom" id="nom" placeholder="MARTIN" type="text" /><br />
-                    <label for="prenom">Prénom : </label>
-                    <input name="prenom" id="prenom" placeholder="John" type="text" /><br />
-                    <label for="date">Date de naissance : </label>
-                    <input name="date" id="date" type="date" /><br />
-                    <label for="genre">Sexe : </label>
-                    <input type="radio" name="genre" id="genre" value="homme">Homme
-                    <input type="radio" name="genre" value="femme">Femme
-                </fieldset>
-                <fieldset>
-                    <legend>Sujet de votre question</legend>
-                    <label for="urgent">Est ce urgent ? </label>
-                    <input type="checkbox" name="urgent" id="urgent" value="urgent"><br />
-                    <label for="probleme">Type de problème : </label>
-                    <select id="probleme">
-                        <optgroup label="Compte">
-                            <option value="connexion_impossible">Je n'arrive pas à acceder à mon compte</option>
-                            <option value="compte_pirater">Je crois que j'ai été piraté</option>
-                            <option value="compte_mdp_change_impossible">Je n'arrive pas à changer mon mot de passe
-                            </option>
-                            <option value="identifiants_perdu">J'ai perdu mes identifiants</option>
-                        </optgroup>
-                        <optgroup label="Achat">
-                            <option value="achat_erreur_confirmer">Je n'arrive pas à confirmer mon achat</option>
-                            <option value="livraison_nouvelles">J'aimerais avoir des nouvelles de ma livraison</option>
-                        </optgroup>
-                    </select>
-                </fieldset>
-                <fieldset>
-                    <legend>Commentaire</legend>
-                    <label for="note">Notes :</label><br />
-                    <textarea rows="15" cols="100"></textarea>
-                </fieldset>
-                <input type="submit" value="Envoyer ma question" />
-            </form>
-        </div>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Qui etes vous ?</legend>
+                <label for="nom">Nom : </label>
+                <input name="nom" id="nom" placeholder="MARTIN" type="text" /><br />
+                <label for="prenom">Prénom : </label>
+                <input name="prenom" id="prenom" placeholder="John" type="text" /><br />
+                <label for="date">Date de naissance : </label>
+                <input name="date" id="date" type="date" /><br />
+                <label for="genre">Sexe : </label>
+                <input type="radio" name="genre" id="genre" value="homme">Homme
+                <input type="radio" name="genre" value="femme">Femme
+            </fieldset>
+            <fieldset>
+                <legend>Sujet de votre question</legend>
+                <label for="urgent">Est ce urgent ? </label>
+                <input type="checkbox" name="urgent" id="urgent" value="urgent"><br />
+                <label for="probleme">Type de problème : </label>
+                <select id="probleme">
+                    <optgroup label="Compte">
+                        <option value="connexion_impossible">Je n'arrive pas à acceder à mon compte</option>
+                        <option value="compte_pirater">Je crois que j'ai été piraté</option>
+                        <option value="compte_mdp_change_impossible">Je n'arrive pas à changer mon mot de passe
+                        </option>
+                        <option value="identifiants_perdu">J'ai perdu mes identifiants</option>
+                    </optgroup>
+                    <optgroup label="Achat">
+                        <option value="achat_erreur_confirmer">Je n'arrive pas à confirmer mon achat</option>
+                        <option value="livraison_nouvelles">J'aimerais avoir des nouvelles de ma livraison</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Commentaire</legend>
+                <label for="note">Notes :</label><br />
+                <textarea rows="15" cols="100"></textarea>
+            </fieldset>
+            <input type="submit" value="Envoyer ma question" />
+        </form>
 
     </main>
     <footer></footer>
