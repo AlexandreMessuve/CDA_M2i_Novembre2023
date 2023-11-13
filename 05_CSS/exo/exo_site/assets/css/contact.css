@@ -1,10 +1,12 @@
 fieldset{
+    text-align: left;
+    margin: auto;
     border-radius: 9px;
     width: 51.5em;
 }
 form{
+    text-align: center;
     margin-top: 2em;
-    margin-left: 28%;
     color: white;
 }
 
