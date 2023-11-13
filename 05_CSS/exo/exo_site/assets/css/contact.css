@@ -1,0 +1,16 @@
+fieldset{
+    border-radius: 9px;
+    width: 51.5em;
+}
+form{
+    margin-top: 2em;
+    margin-left: 28%;
+    color: white;
+}
+
+label , input, select, textarea{
+    margin-bottom: 1em;
+}
+fieldset > label:first-of-type, input:first-of-type, textarea:first-of-type{
+margin-top: 1em;
+}

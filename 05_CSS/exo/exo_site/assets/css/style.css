@@ -1,0 +1,27 @@
+body{
+    background-color: #1E90FF;
+}
+h1, h2{
+    text-align: center;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+a ,p, h1, h2{
+    color: white;
+}
+a{
+    text-decoration: none;
+    margin-left: 0.5em;
+}
+a:hover{
+    font-size: large;
+}
+img{
+    border-radius: 1vw;
+    margin-top: 2em;
+    margin-left: 32%;
+    margin-bottom: 3em;
+}

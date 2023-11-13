@@ -1,0 +1,15 @@
+table{
+    border-radius: 5px;
+    background-color: blue;
+    margin-left: 38%;
+    margin-top: 2em;
+}
+th{
+    padding: 0.5em;
+    color: white;
+}
+td{
+    padding: 0.5em;
+    color: black;
+    background-color: white;
+}
