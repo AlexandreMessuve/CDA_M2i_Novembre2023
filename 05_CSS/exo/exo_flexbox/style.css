@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+}
+header{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    height: 30px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section{
+    display: flex;
+    justify-content: space-between;
+}
+article{
+    height: 732px;
+}
+article:nth-child(1){
+    background-color: red;
+}
+article:nth-child(2){
+    color: white;
+    flex-grow: 4;
+    background-color: blue;
+}
+article:nth-child(3){
+    background-color: yellow;
+}
