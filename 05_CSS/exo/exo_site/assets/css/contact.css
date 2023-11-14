@@ -1,6 +1,7 @@
 fieldset{
     text-align: left;
     margin: auto;
+    border-color: white;
     border-radius: 9px;
     width: 51.5em;
 }
@@ -17,6 +18,7 @@ fieldset > label:first-of-type, input:first-of-type, textarea:first-of-type{
 margin-top: 1em;
 }
 textarea{
+    width: 100%;
     resize: none;
 }
 input[type="submit"]{
