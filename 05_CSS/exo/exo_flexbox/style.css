@@ -7,9 +7,6 @@ header{
     justify-content: center;
     align-items: center;
 }
-p{
-    margin-right: 16px;
-}
 footer{
     height: 30px;
     background-color: black;
@@ -23,6 +20,7 @@ section{
     justify-content: space-between;
 }
 article{
+    width: 250px;
     height: 732px;
 }
 article:nth-child(1){
