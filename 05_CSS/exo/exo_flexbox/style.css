@@ -7,7 +7,9 @@ header{
     justify-content: center;
     align-items: center;
 }
-
+p{
+    margin-right: 16px;
+}
 footer{
     height: 30px;
     background-color: black;
