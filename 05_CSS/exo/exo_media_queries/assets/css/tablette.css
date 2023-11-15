@@ -31,5 +31,6 @@
     }
     .card{
         width: 380px;
+        margin: 0.5em 0.8em;
     }
 }

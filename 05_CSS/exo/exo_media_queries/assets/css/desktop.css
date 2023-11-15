@@ -30,9 +30,9 @@
         justify-content: center;
     }
     .card{
-        width: 320px;
+        width: 350px;
         height: 400px;
-        margin-right: 1em;
+        margin: 0.3em 0.8em;
     }
     hgroup{
         margin-right: 4em;
