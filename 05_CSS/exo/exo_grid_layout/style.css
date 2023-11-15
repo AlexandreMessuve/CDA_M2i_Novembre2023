@@ -5,22 +5,27 @@
     --colorColumnB: blue;
     --colorColumnC: yellow;
     --titleFontSize: 60px;
-    --headerHeight: 230px;
+    --headerHeight: 200px;
     --articleHeight: 682px;
-    --footerHeight: 50px;
+    --footerHeight: 30px;
 
 }
 
 * {
     margin: 0;
 }
-
+body{
+    display: grid;
+    grid-template-areas: 
+            "header header header header"
+            "main main main main"
+            "footer footer footer footer";
+}
 header {
+    grid-area: header;
     height: var(--headerHeight);
     background-color: var(--colorHeader);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px 100px 100px;
     grid-template-areas:
         ". . ."
         ". title ."
@@ -32,32 +37,30 @@ header h1 {
     font-size: var(--titleFontSize);
     grid-area: title;
 }
-
+main{
+    grid-area: main;
+}
 footer {
+    grid-area: footer;
     height: var(--footerHeight);
     background-color: var(--colorFooter);
     color: white;
     display: grid;
-    grid-template-columns: 1fr 0.2fr 1fr;
-    grid-template-rows: 20px 20px 10px;
     grid-template-areas: 
-        ". . ."
-        ". footer ."
-        ". . .";
+        ". . . ."
+        "centerFooter centerFooter centerFooter centerFooter"
+        ". . . .";
 
 
+}
+section{
+    display: grid;
+    grid-template-areas: "left middle middle right";
 }
 
 footer h5{
+    grid-area: centerFooter;
     text-align: center;
-    grid-area: footer;
-}
-
-section {
-    display: grid;
-    grid-template-columns: 0.5fr 2fr 0.5fr;
-    grid-template-rows: 25% 50% 25%;
-    grid-template-areas: "columnA columnB columnC";
 }
 
 article {
@@ -70,17 +73,17 @@ article h3 {
 }
 
 article:nth-child(1) {
-    grid-area: columnA;
+    grid-area: left;
     background-color: var(--colorColumnA);
 }
 
 article:nth-child(2) {
     color: white;
-    grid-area: columnB;
+    grid-area: middle;
     background-color: var(--colorColumnB);
 }
 
 article:nth-child(3) {
-    grid-area: columnC;
+    grid-area: right;
     background-color:var(--colorColumnC);
 }
