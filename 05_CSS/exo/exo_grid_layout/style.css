@@ -1,0 +1,86 @@
+:root {
+    --colorHeader: white;
+    --colorFooter: black;
+    --colorColumnA: red;
+    --colorColumnB: blue;
+    --colorColumnC: yellow;
+    --titleFontSize: 60px;
+    --headerHeight: 230px;
+    --articleHeight: 682px;
+    --footerHeight: 50px;
+
+}
+
+* {
+    margin: 0;
+}
+
+header {
+    height: var(--headerHeight);
+    background-color: var(--colorHeader);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-areas:
+        ". . ."
+        ". title ."
+        ". . .";
+    text-align: center;
+}
+
+header h1 {
+    font-size: var(--titleFontSize);
+    grid-area: title;
+}
+
+footer {
+    height: var(--footerHeight);
+    background-color: var(--colorFooter);
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 0.2fr 1fr;
+    grid-template-rows: 20px 20px 10px;
+    grid-template-areas: 
+        ". . ."
+        ". footer ."
+        ". . .";
+
+
+}
+
+footer h5{
+    text-align: center;
+    grid-area: footer;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas: "columnA columnB columnC";
+}
+
+article {
+    height: var(--articleHeight);
+}
+
+article p,
+article h3 {
+    margin: 15px;
+}
+
+article:nth-child(1) {
+    grid-area: columnA;
+    background-color: var(--colorColumnA);
+}
+
+article:nth-child(2) {
+    color: white;
+    grid-area: columnB;
+    background-color: var(--colorColumnB);
+}
+
+article:nth-child(3) {
+    grid-area: columnC;
+    background-color:var(--colorColumnC);
+}
