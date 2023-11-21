@@ -27,4 +27,4 @@ if(condition){
 
 //version terniaire
 
-console.log(condition ? "Vous etes eligible" : "Vous n'êtes pas éligible raison: " + (age < 30 ? "Vous êtes trop jeune. " : "")+(paid > 40000 ? "Votre salaire est trop élevé. " : "")+(yearExp < 5 ? "Vous n'avez pas l'expérience requise. " : "") );
+console.log(condition ? "Vous etes eligible" : "Vous n'êtes pas éligible raison: " + (age < 30 ? "Vous êtes trop jeune. \n" : "")+(paid > 40000 ? "Votre salaire est trop élevé. \n" : "\n")+(yearExp < 5 ? "Vous n'avez pas l'expérience requise. " : "") );
