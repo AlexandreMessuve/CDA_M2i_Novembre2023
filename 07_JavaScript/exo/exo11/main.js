@@ -8,3 +8,11 @@ while(epaisseur < epaisseurFinal){
 }
 
 console.log(`La feuille est plié ${pli} fois pour atteindre 400m`);
+
+let depli = 0;
+while(epaisseurFinal >= 0.1 ){
+    depli++;
+    epaisseurFinal /=2;
+}
+
+console.log(`La feuille est déplié ${depli} fois pour atteindre 0.1mm`);
