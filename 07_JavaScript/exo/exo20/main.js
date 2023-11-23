@@ -26,13 +26,13 @@ function proportion(string, sequence) {
     let cpt = 0;
     const lengthString = string.length;
     const lengthSequence = sequence.length;
-    for (let char = 0; char < lengthSequence; char++) {
-        if (string[char] !== sequence[char]) {
+    for (let char = 0; char < lengthString; char++) {
+        if (string.substring(char, char + lengthSequence) !== sequence) {
             continue;
         }
         cpt++;
     }
-    return cpt * 100 / lengthString;
+    return (cpt * lengthSequence) * 100 / lengthString;
 }
 
 let string = prompt('Saisir la chaine : ');
