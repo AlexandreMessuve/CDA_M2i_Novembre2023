@@ -14,10 +14,10 @@ function isVerifAdn(string) {
     return true;
 }
 
-function inputAdn(string) {
+function inputAdn(string, message) {
     while (!isVerifAdn(string)) {
         console.log('Erreur de saisie !!!');
-        string = prompt('Saisir la chaine : ');
+        string = prompt(`Saisir la ${message} : `);
     }
     return string.toLowerCase();
 }
@@ -37,11 +37,11 @@ function proportion(string, sequence) {
 
 let string = prompt('Saisir la chaine : ');
 
-string = inputAdn(string);
+string = inputAdn(string, "chaine");
 
 let sequence = prompt('Saisir la séquence : ');
 
-sequence = inputAdn(sequence);
+sequence = inputAdn(sequence, "séquence");
 
 console.log(`chaine : ${string}\nséquence: ${sequence}`);
 
