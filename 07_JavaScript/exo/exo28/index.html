@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+    <header>
+        <h1>Bonjour ceci est un titre (j'avais pas d'inspi)</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de naissance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <span id="error-lastname"></span>
+                    <input type="text" id="input-lastname" placeholder="Nom" required>
+                </td>
+                <td>
+                    <span id="error-firstname"></span>
+                    <input type="text" id="input-firstname" placeholder="Prénom" required>
+                </td>
+                <td>
+                    <span id="error-date"></span>
+                    <input type="date" id="input-date" required>
+                </td>
+                <td>
+                    <button id="button-input">Ajouter</button>
+                </td>
+
+            </tr>
+            <tbody id="table-person">
+            </tbody>
+        </table>
+
+    </main>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
