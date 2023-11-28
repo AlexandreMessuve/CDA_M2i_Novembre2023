@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+    <header>
+        <h1>Mon joli formulaire</h1>
+    </header>
+    <main>
+        <form action="#" method="post" id="my-form">
+            <fieldset>
+                <div>
+                    <label for="username">Votre pseudo :</label>
+                    <input type="text" name="username" id="username" required>
+                    <span>Le pseudo ne doit pas contenir d'espace</span>
+                    <span style="display: none; background-color: red; color: white;" id="error-username">La longueur du pseudo doit être supérieur à 3 caractères</span>
+                </div>
+                <div>
+                    <label for="username">Votre mot de passe :</label>
+                    <input type="password" name="password" id="password" required>
+                    <span>Le mot de passe ne doit pas contenir d'espace</span>
+                    <span style="display: none; background-color: red; color: white;" id="error-password">La longueur du mot de passe doit être de minimum 7 caractères</span>
+                </div>
+            </fieldset>
+            <span style="display: none; background-color: green; color: white;" id="form-submit">Formulaire envoyé</span>
+            <button type="submit" id="my-button">Connexion</button>
+        </form>
+
+    </main>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
