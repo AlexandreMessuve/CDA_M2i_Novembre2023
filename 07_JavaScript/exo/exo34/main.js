@@ -78,7 +78,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         pokemonType.textContent = '';
         pokemon.types.forEach((value, index) => pokemonType.textContent += index === pokemonTypeLength - 1 ? `${value.type.name}` : `${value.type.name}, `);
         if (abilities) {
-            abilitiesContent.childNodes.forEach((value, index) => abilitiesContent.lastChild.remove())
+            const child = abilitiesContent.childElementCount;
+            console.log(child);
+            for (let i = 0; i < child; i++) {
+                abilitiesContent.childNodes[0].remove();
+                console.log(abilitiesContent.childElementCount);
+            }
         } else {
             abilities = true;
         }
