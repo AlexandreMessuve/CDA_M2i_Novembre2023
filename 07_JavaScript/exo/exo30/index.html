@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer type="module" src="./main.js"></script>
+    <title>Javascript</title>
+</head>
+
+<body>
+    <header>
+        <h1>Mes jolis animaux</h1>
+    </header>
+    <main>
+        <form action="#" method="post" id="my-form">
+            <div>
+                <label for="animal">Quelle type d'animal avez-vous?</label>
+                <select required name="animal" id="animal">
+                    <option selected value="">selectionner un animal</option>
+                    <option value="cat">Chat</option>
+                    <option value="dog">Chien</option>
+                </select>
+            </div>
+            <div>
+                <label for="race">Quelle est la race de votre animal ?</label>
+                <select required name="race" id="race">
+                    <option selected value="">selectionner une race</option>
+                </select>
+            </div>
+            <div>
+                <label for="name">Nom de votre animal</label>
+                <input required type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="year">L'age de votre animal</label>
+                <input required type="number" name="year" id="year">
+            </div>
+            <div>
+                <label for="color">Couleur de votre animal</label>
+                <input type="text" name="color" id="color">
+            </div>
+            <button id="my-button">Ajouter</button>
+        </form>
+
+        <h2>Mes Animaux</h2>
+        <table>
+            <thead>
+                <th>Type</th>
+                <th>Race</th>
+                <th>Nom</th>
+                <th>Age</th>
+                <th>Couleur</th>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+    </main>
+
+    
+</body>
+
+</html>

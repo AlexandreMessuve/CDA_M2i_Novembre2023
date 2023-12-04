@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer type="module" src="./main.js"></script>
+    <title>Exo 31 JS</title>
+</head>
+
+<body>
+    <header>
+        <h1>Ajout de personne</h1>
+    </header>
+    <main>
+        <form action="#" method="post" id="my-form">
+            <div>
+                <label for="lastname">Nom</label>
+                <input type="text" name="lastname" id="lastname" required>
+                
+            </div>
+            <div>
+                <label for="firstname">Prénom</label>
+                <input type="text" name="firstname" id="firstname" required>
+                <div id="error"></div>
+            </div>
+            <div>
+                <label for="birthday">Date de naissance</label>
+                <input required type="date" name="birthday" id="birthday" required>
+            </div>
+            <div>
+                <label for="gender">Genre :</label>
+                <select name="gender" id="genre" required>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                    <option value="Autre">Autre</option>
+                </select>
+            </div>
+            <button id="my-button">Ajouter</button>
+            <div id="response">
+
+            </div>
+        </form>
+
+        <h2>Listes des personnes ajoutés</h2>
+        <table>
+            <thead>
+                <th>#</th>
+                <th>Nom & Prénom</th>
+                <th>Date de naissance</th>
+                <th>Genre</th>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+    </main>
+
+    
+</body>
+
+</html>

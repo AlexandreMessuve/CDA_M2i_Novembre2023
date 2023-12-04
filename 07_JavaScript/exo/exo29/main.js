@@ -66,6 +66,3 @@ form.addEventListener('submit', (event) => {
 
 
 })
-
-
-
