@@ -9,6 +9,7 @@
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/05_CSS/cours" target="_self">Sur CSS</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/06_Bootstrap/cours" target="_self">Sur Bootstrap</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/07_JavaScript/cours" target="_self">Sur JavaScript</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/08_NodeJS/cours" target="_self">Sur NodeJS</a></li>
 </ul>
 
 <p><strong>Les exercices :</strong></p>
@@ -21,4 +22,5 @@
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/05_CSS/exo" target="_self">Sur CSS</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/06_Bootstrap/exo" target="_self">Sur Bootstrap</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/07_JavaScript/exo" target="_self">Sur JavaScript</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/08_NodeJS/exo" target="_self">Sur NodeJS</a></li>
 </ul>

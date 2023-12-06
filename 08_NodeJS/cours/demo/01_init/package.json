@@ -1,0 +1,12 @@
+{
+  "name": "01_init",
+  "version": "0.0.1",
+  "description": "init projet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alexandre MESSUVE",
+  "license": "ISC"
+}

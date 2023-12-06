@@ -1,0 +1,13 @@
+{
+  "name": "exo03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "my-first-io.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
