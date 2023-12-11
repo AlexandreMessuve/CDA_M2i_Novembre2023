@@ -14,6 +14,9 @@
                 <router-link to="/exercices">
                     <li><a href="#">Exercices</a></li>
                 </router-link>
+                <router-link to="/rick">
+                    <li><a href="#">Rick Api</a></li>
+                </router-link>
             </ul>
         </nav>
     </header>

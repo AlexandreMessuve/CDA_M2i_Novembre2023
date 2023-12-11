@@ -4,6 +4,7 @@ import Exercice02 from '../components/Exercice02.vue';
 import Exercice03 from '../components/Exercice03.vue';
 import Exercice04 from '../components/Exercice04.vue';
 import Exercice05 from '../components/Exercice05.vue';
+import Exercice06 from '../components/Exercice06.vue';
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import Exercice05 from '../components/Exercice05.vue';
     <Exercice03 />
     <Exercice04 />
     <Exercice05 />
+    <Exercice06 />
   </div>
 </template>
 <style scoped>

@@ -53,7 +53,12 @@ button:hover {
     color: rgb(88, 88, 216);
     border-color: rgb(88, 88, 216);
 }
-
+button:disabled{
+    cursor: default;
+    opacity: 0.7;
+    color: black;
+    border-color: black;
+}
 @media only screen and (min-width:1000px) {
     .container {
         width: 400px;
