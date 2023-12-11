@@ -1,10 +1,10 @@
 <script setup>
-import Exercice01 from '../components/Exercice01.vue';
-import Exercice02 from '../components/Exercice02.vue';
-import Exercice03 from '../components/Exercice03.vue';
-import Exercice04 from '../components/Exercice04.vue';
-import Exercice05 from '../components/Exercice05.vue';
-import Exercice06 from '../components/Exercice06.vue';
+import Exercice01 from '../components/exos/Exercice01.vue';
+import Exercice02 from '../components/exos/Exercice02.vue';
+import Exercice03 from '../components/exos/Exercice03.vue';
+import Exercice04 from '../components/exos/Exercice04.vue';
+import Exercice05 from '../components/exos/Exercice05.vue';
+import Exercice06 from '../components/exos/Exercice06.vue';
 </script>
 
 <template>

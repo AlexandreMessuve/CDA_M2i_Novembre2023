@@ -17,6 +17,9 @@
                 <router-link to="/rick">
                     <li><a href="#">Rick Api</a></li>
                 </router-link>
+                <router-link to="/todo-list">
+                    <li><a href="#">Todo List</a></li>
+                </router-link>
             </ul>
         </nav>
     </header>

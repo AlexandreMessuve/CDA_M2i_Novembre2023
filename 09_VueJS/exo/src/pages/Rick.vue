@@ -1,5 +1,5 @@
 <script setup>
-import Exercice07 from '../components/Exercice07.vue';
+import Exercice07 from '../components/exos/Exercice07.vue';
 </script>
 
 <template>
