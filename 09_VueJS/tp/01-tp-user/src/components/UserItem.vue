@@ -1,11 +1,9 @@
 <script setup>
-import {ref} from 'vue';
+import {ref, defineEmits} from 'vue';
 const toggleUpdate = ref(false);
-const result = ref(false);
 const resultMessage = ref('');
-const resultClass = ref('');
 const success = ref(false);
-const emit = defineEmits('update-user')
+const emit = defineEmits(['update-user', 'remove-user', 'show-result'])
 const props = defineProps({
     id: {
         Type: String,
@@ -32,23 +30,21 @@ const emitUpdateUser = () => {
     const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
     if (nameInput.value !== '' && emailInput.value !== '') {
         if (pattern.test(emailInput.value)) {
-            emit('update-user', nameInput.value, emailInput.value, props.id);
             resultMessage.value = 'L\'utilisateur à bien été mis à jour';
             success.value = true;
+            emit('update-user', nameInput.value, emailInput.value, props.id, success.value, resultMessage.value);
             toggleUpdate.value = false;
         } else {
             resultMessage.value = 'L\'email n\'est pas valide';
+            success.value = false;
         }
     } else {
-        resultMessage.value = 'Veuillez remplir tous les champs obligatoire !'
-    }
-    if (success.value) {
-        resultClass.value = 'alert-success';
+        resultMessage.value = 'Veuillez remplir tous les champs obligatoire !';
         success.value = false;
-    } else {
-        resultClass.value = 'alert-danger';
     }
-    result.value = true;
+    if(!success.value){
+        emit('show-result', success.value, resultMessage.value);
+    }
 }
 </script>
 
@@ -58,7 +54,7 @@ const emitUpdateUser = () => {
         <td>{{ email }}</td>
         <td>
             <button class="btn btn-info mx-5" @click="toggleUpdate = !toggleUpdate">Modifier</button>
-            <button class="btn btn-danger" @click="$emit('remove-user', index)">Supprimer</button>
+            <button class="btn btn-danger" @click="emit('remove-user', index)">Supprimer</button>
         </td>
     </tr>
     <tr v-else class="align-middle">
@@ -67,15 +63,6 @@ const emitUpdateUser = () => {
         <td>
             <button class="btn btn-info mx-5" @click="emitUpdateUser">Valider</button>
             <button class="btn btn-dark" @click="toggleUpdate = !toggleUpdate">Cancel</button>
-        </td>
-    </tr>
-    <tr v-if="result">
-        <td colspan="3">
-            <div class="rounded-2 alert alert-dismissible fade show" role="alert" :class="resultClass">
-                {{ resultMessage }}
-                <button type="button" class="btn-close" @click="result = !result" aria-label="Close">
-                </button>
-            </div>
         </td>
     </tr>
 </template>
