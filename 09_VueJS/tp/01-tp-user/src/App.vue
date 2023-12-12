@@ -3,21 +3,26 @@ import { ref } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
 import AddUser from './components/AddUser.vue';
 import UserItem from './components/UserItem.vue';
+
+// Déclaration des variables réactives
 const resultMessage = ref('');
 const resultClass = ref('');
 const result = ref(false);
 const users = ref([]);
 
-const showResult = (success, message)=>{
-  if(success){
+// Fonction pour afficher le résultat
+const showResult = (success, message) => {
+  if (success) {
     resultMessage.value = message;
     resultClass.value = 'alert-success';
-  }else{
+  } else {
     resultMessage.value = message;
     resultClass.value = 'alert-danger';
   }
-  result.value = true
+  result.value = true;
 }
+
+// Fonction pour vérifier si l'utilisateur existe déjà
 const userExist = (email, id = null) => {
   let flag = false;
   users.value.forEach((user) => {
@@ -27,14 +32,16 @@ const userExist = (email, id = null) => {
   })
   return flag;
 }
+
+// Fonction pour ajouter un utilisateur
 const addUser = (name, email, success, message) => {
   if (users.value.length > 0) {
-    if(userExist(email)){
+    if (userExist(email)) {
       success = false;
       message = 'L\'utilisateur existe déjà';
     }
   }
-  if(success){
+  if (success) {
     users.value.push({
       id: uuidv4(),
       name: name,
@@ -42,25 +49,26 @@ const addUser = (name, email, success, message) => {
     });
   }
   showResult(success, message);
-  
 }
+
+// Fonction pour mettre à jour un utilisateur
 const updateUser = (name, email, id, success, message) => {
-
-  if(userExist(email, id)){
-      success = false;
-      message = 'L\'utilisateur existe déjà';
-    }
-    if(success){
-      users.value.forEach((user) => {
-        if (user.id === id) {
-          user.name = name;
-          user.email = email;
-        }
-      });
-    }
-    showResult(success, message);
+  if (userExist(email, id)) {
+    success = false;
+    message = 'L\'utilisateur existe déjà';
+  }
+  if (success) {
+    users.value.forEach((user) => {
+      if (user.id === id) {
+        user.name = name;
+        user.email = email;
+      }
+    });
+  }
+  showResult(success, message);
 }
 
+// Fonction pour supprimer un utilisateur
 const removeUser = (index) => {
   users.value.splice(index, 1);
 }
@@ -91,7 +99,6 @@ const removeUser = (index) => {
         </tr>
       </tbody>
     </table>
-
   </div>
 </template>
 

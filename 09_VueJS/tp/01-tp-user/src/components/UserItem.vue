@@ -1,9 +1,15 @@
 <script setup>
 import {ref, defineEmits} from 'vue';
-const toggleUpdate = ref(false);
-const resultMessage = ref('');
-const success = ref(false);
-const emit = defineEmits(['update-user', 'remove-user', 'show-result'])
+
+// Déclaration des variables réactives
+const toggleUpdate = ref(false); // Variable pour gérer l'affichage du formulaire de mise à jour
+const resultMessage = ref(''); // Message de résultat de la mise à jour
+const success = ref(false); // Indicateur de succès de la mise à jour
+
+// Définition des événements émis par le composant
+const emit = defineEmits(['update-user', 'remove-user', 'show-result']);
+
+// Définition des propriétés attendues par le composant
 const props = defineProps({
     id: {
         Type: String,
@@ -23,9 +29,11 @@ const props = defineProps({
     },
 });
 
+// Variables réactives pour stocker les valeurs des champs de saisie
 const nameInput = ref(props.name);
 const emailInput = ref(props.email);
 
+// Fonction pour émettre l'événement de mise à jour de l'utilisateur
 const emitUpdateUser = () => {
     const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
     if (nameInput.value !== '' && emailInput.value !== '') {
