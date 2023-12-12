@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, provide } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
 import AddUser from './components/AddUser.vue';
 import UserItem from './components/UserItem.vue';
@@ -9,7 +9,11 @@ const resultMessage = ref('');
 const resultClass = ref('');
 const result = ref(false);
 const users = ref([]);
+const resultSuccess = ref(false);
 
+provide ('success', {
+  resultSuccess
+})
 // Fonction pour afficher le résultat
 const showResult = (success, message) => {
   if (success) {
@@ -39,9 +43,11 @@ const addUser = (name, email, success, message) => {
     if (userExist(email)) {
       success = false;
       message = 'L\'utilisateur existe déjà';
+      resultSuccess.value = false;
     }
   }
   if (success) {
+    resultSuccess.value = true;
     users.value.push({
       id: uuidv4(),
       name: name,
@@ -77,7 +83,10 @@ const removeUser = (index) => {
 <template>
   <div class="container mt-5">
     <h1 class="text-center">Users</h1>
-    <AddUser class="m-5" @add-user="addUser" @show-result="showResult"/>
+    <AddUser class="m-5" 
+    @add-user="addUser" 
+    @show-result="showResult"
+    />
     <div v-if="result" class="rounded-2 alert alert-dismissible fade show" role="alert" :class="resultClass">
       {{ resultMessage }}
       <button type="button" class="btn-close" @click="result = !result" aria-label="Close">
