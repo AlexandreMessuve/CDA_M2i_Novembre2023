@@ -18,10 +18,10 @@ const showResult = (success, message)=>{
   }
   result.value = true
 }
-const userExist = (email) => {
+const userExist = (email, id = null) => {
   let flag = false;
   users.value.forEach((user) => {
-    if (user.email === email) {
+    if (user.email === email && id !== user.id) {
       flag = true;
     }
   })
@@ -46,7 +46,7 @@ const addUser = (name, email, success, message) => {
 }
 const updateUser = (name, email, id, success, message) => {
 
-  if(userExist(email)){
+  if(userExist(email, id)){
       success = false;
       message = 'L\'utilisateur existe déjà';
     }
