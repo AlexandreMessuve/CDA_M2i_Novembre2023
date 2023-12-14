@@ -1,10 +1,8 @@
 <script setup>
-import { inject } from 'vue';
+import { inject} from 'vue';
 
 const { customersList} = inject('customersList');
 const { changeName } = inject('customerName');
-
-console.log(customersList);
 </script>
 
 <template>
@@ -15,6 +13,8 @@ console.log(customersList);
                 <p class="card-text">{{ customer.email }}<br />
                     {{ customer.phone }}
                 </p>
+            </div>
+            <div class="card-footer">
                 <router-link :to="`/customers/${customer.id}`" class="btn btn-primary">Plus de detail</router-link>
             </div>
         </div>

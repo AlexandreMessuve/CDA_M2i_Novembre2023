@@ -1,7 +1,8 @@
 <script setup>
-import { inject } from 'vue';
+import { inject} from 'vue';
 import Customers from '../components/Customers.vue';
 const {customerName} = inject('customerName');
+
 </script>
 
 <template>

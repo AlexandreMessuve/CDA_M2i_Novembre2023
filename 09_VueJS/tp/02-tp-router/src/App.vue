@@ -14,7 +14,7 @@ const customersDetailList = ref([
 const customerName = ref('');
 
 function changeName(name) {
-  customerName.value = name
+  customerName.value = name;
 }
 
 provide('customersList', { customersList });
@@ -29,9 +29,6 @@ provide('customerName', {customerName, changeName})
 <main>
   <router-view></router-view>
 </main>
-<footer>
-  <h3 class="text-center">Mon footer</h3>
-</footer>
 </template>
 
 <style scoped>
