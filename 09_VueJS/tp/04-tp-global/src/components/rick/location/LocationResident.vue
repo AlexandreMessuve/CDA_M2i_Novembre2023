@@ -27,13 +27,13 @@ const updateModal = (value) => {
 <a href="" @click.prevent="showModal = !showModal">
     <div :id="character?.id">
         <img  :src="!!character.image ? character.image : '../../../assets/img/avatar_placeholder.jpeg'" :alt="character?.name" height="50"/>
-        <p>{{character?.name?.length > 15 ? character?.name?.slice(0,15) + '...' : character?.name}}</p>
+        <p class="text-center">{{character?.name?.length > 15 ? character?.name?.slice(0,15) + '...' : character?.name}}</p>
     </div>
 </a>
 </template>
 
 <style scoped>
 p{
-    font-size: 0.7rem;
+    font-size: 0.5rem;
 }
 </style>

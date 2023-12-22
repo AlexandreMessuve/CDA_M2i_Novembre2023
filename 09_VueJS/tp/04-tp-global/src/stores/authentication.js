@@ -27,7 +27,6 @@ export const useAuthStore = defineStore('auth', () => {
   const register = (email, username, password) => {
     // Vérification si l'email est déjà utilisé
     if (!!getUserByEmail(email)) {
-      console.log(false)
       // Si l'email est déjà utilisé, retourner un message d'erreur
       return {
         code: false,

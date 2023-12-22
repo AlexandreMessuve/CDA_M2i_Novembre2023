@@ -76,7 +76,7 @@ const beforeSubmit = async() => {
         // Validation des données du formulaire
         await connectionValidation.validate(form, { abortEarly: false});    
         resp = authStore.auth(form.email, form.password, form.checkbox);
-
+        
         if (resp.code) {
             // Si l'authentification réussit, redirection vers la page d'accueil
             alertClass.value = 'alert-success';

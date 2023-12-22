@@ -72,7 +72,8 @@ onBeforeMount(() => {
 
 <style scoped >
 .character{
-    overflow-y: auto;
+    overflow: auto;
+    height: 11rem;
 }
 
 @keyframes rotating {

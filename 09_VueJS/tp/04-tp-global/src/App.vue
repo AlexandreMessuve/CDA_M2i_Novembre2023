@@ -10,10 +10,10 @@ const linkClass = reactive({
   home: '',
   connection: '',
   register: '',
-  rick: '',
   rickCharacter: '',
   rickEpisode: '',
   rickLocation: '',
+  rickFavorites: '',
   footer: '',
 });
 
@@ -36,24 +36,23 @@ watchEffect(() => {
   }
   if (route.path === '/rick-morty/character') {
     linkClass.rickCharacter = active;
-    linkClass.rick = active;
   } else {
-    linkClass.rick = '';
     linkClass.rickCharacter = '';
   }
   if (route.path === '/rick-morty/episode') {
-    linkClass.rick = active;
     linkClass.rickEpisode = active;
   } else {
-    linkClass.rick = '';
     linkClass.rickEpisode = '';
   }
   if (route.path === '/rick-morty/location') {
-    linkClass.rick = active;
     linkClass.rickLocation = active;
   } else {
-    linkClass.rick = '';
     linkClass.rickLocation = '';
+  }
+  if (route.path === '/rick-morty/favorites') {
+    linkClass.rickFavorites = active;
+  } else {
+    linkClass.rickFavorites = '';
   }
   if (route.path === '/connection' || route.path === '/register') {
     linkClass.footer = 'fixed-bottom';
@@ -114,24 +113,14 @@ const logout = () => {
 
         <ul class="navbar-nav justify-items-center">
           <li class="nav-item">
-            <RouterLink class="nav-link" :class="linkClass.home" to="/">Accueil</RouterLink>
+            <RouterLink  :class="linkClass.home" to="/">Accueil</RouterLink>
           </li>
           <template v-if="authStore.isLogging">
-
-
-            <li class="nav-item dropdown" active-class="active">
-              <a class="nav-link dropdown-toggle" :class="linkClass.rick" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Rick et Morty
-              </a>
-              <ul class="dropdown-menu">
-                <li><router-link class="dropdown-item" to="/rick-morty/character">Personnage</router-link></li>
-                <li><router-link class="dropdown-item" to="/rick-morty/episode">Episode</router-link></li>
-                <li><router-link class="dropdown-item" to="/rick-morty/location">Location</router-link></li>
-                <li><router-link class="dropdown-item" to="/rick-morty/favorites">Favoris</router-link></li>
-              </ul>
-            </li>
+            <li class="nav-item"><router-link class="nav-link" :class="linkClass.rickCharacter"  to="/rick-morty/character">Personnage</router-link></li>
+            <li class="nav-item"><router-link class="nav-link" :class="linkClass.rickEpisode" to="/rick-morty/episode">Episode</router-link></li>
+            <li class="nav-item"><router-link class="nav-link" :class="linkClass.rickLocation" to="/rick-morty/location">Location</router-link></li>
+            <li class="nav-item"><router-link class="nav-link" :class="linkClass.rickFavorites" to="/rick-morty/favorites">Favoris</router-link></li>
           </template>
-
           <template v-if="!authStore.isLogging">
             <li class="nav-item" active-class="active">
               <RouterLink class="nav-link" :class="linkClass.connection" to="/connection">Se connecter</RouterLink>

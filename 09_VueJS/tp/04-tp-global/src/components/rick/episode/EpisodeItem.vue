@@ -57,7 +57,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-    <div class="card m-3" style="width: 57rem; height: 40rem;">
+    <div class="card m-3" style="width: 57rem; height: auto;">
         <div class="card-body">
             <div class="d-flex flex-wrap justify-content-around">
                 <h6>Nom de l'épisode : <span>{{ episode.name }}</span></h6>
@@ -101,7 +101,8 @@ onBeforeMount(() => {
 
 <style scoped >
 .character{
-    overflow-y: auto;
+    overflow: auto;
+    height: 11rem;
 }
 
 @keyframes rotating {
