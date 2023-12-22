@@ -28,6 +28,8 @@ export const useRickStore = defineStore('rick', () => {
         rick.currentPage = page;
         await fetchData(search);
     }
+
+    // Retourner l'état et les méthodes pour interagir avec lui
     return  {rick, fetchData, changePage}
 
 

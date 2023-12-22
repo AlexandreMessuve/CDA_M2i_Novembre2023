@@ -1,15 +1,25 @@
 <script setup>
+// Importation de la fonction ref de Vue.js pour créer des propriétés réactives
 import {ref} from 'vue';
+
+// Importation du composant ModalCharacter
 import ModalCharacter from '../characters/ModalCharacter.vue';
 
+// Définition des propriétés du composant avec la fonction defineProps
 const props = defineProps({
+    // La propriété character est de type Object et est requise
     character: {
         type: Object,
         required: true,
     }
 });
+
+// Création d'une propriété réactive showModal initialisée à false
 const showModal = ref(false);
+
+// Définition d'une fonction updateModal pour mettre à jour la valeur de showModal
 const updateModal = (value) => {
+    // Mise à jour de la valeur de showModal
     showModal.value = value;
 }
 </script>

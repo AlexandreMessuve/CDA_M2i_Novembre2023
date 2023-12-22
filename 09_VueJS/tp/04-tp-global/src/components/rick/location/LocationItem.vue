@@ -12,21 +12,23 @@ const props = defineProps({
 });
 const favorite = ref(null);
 
-
+// Cette fonction vérifie si le personnage est un objet
 const loadCharacter = (character) => {
-    if(typeof character === 'object'){
+    if (typeof character === 'object') {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
+// Cette fonction est appelée à chaque fois que la liste des favoris est mise à jour
 watchEffect(() => {
     favorite.value = favoriteStore.getFavorite('location', props.location);
 });
 
+// Cette fonction est appelée avant que le composant soit monté
 onBeforeMount(() => {
-    favorite.value = favoriteStore.favorite.find((value) =>value.type === 'location' && value.data.id === props.location.id);
+    favorite.value = favoriteStore.favorite.find((value) => value.type === 'location' && value.data.id === props.location.id);
 })
 </script>
 

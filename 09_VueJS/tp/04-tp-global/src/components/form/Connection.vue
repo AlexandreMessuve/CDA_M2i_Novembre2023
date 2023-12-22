@@ -5,17 +5,22 @@ import { useRouter } from 'vue-router';
 import * as REGEX from '../../constants/regex.js';
 import FieldForm from '../../slots/FieldForm.vue';
 import connectionValidation from '../../yup/connectionValidation.js';
+
 const router = useRouter();
 const authStore = useAuthStore();
+
+// Définition des données réactives
 const form = reactive({
     email: '',
     password: '',
     checkbox: false,
 });
+
 const errors = reactive({
     email: '',
     password: ''
 });
+
 let resp = reactive({});
 const respStatus = ref(false);
 const alertClass = ref('');
@@ -24,9 +29,13 @@ const formClass = reactive({
     password: '',
     checkbox: ''
 })
+
+// Utilisation de watchEffect pour observer les changements dans les données réactives
 watchEffect(() => {
     const success = 'border-success focus-ring-success text-success';
     const danger = 'border-danger focus-ring-danger text-danger';
+
+    // Validation de l'email
     if(form.email !== ''){
         if(REGEX.EMAIL.test(form.email)){
             formClass.email = success;
@@ -38,6 +47,7 @@ watchEffect(() => {
         formClass.email = '';
     }
 
+    // Validation du mot de passe
     if(form.password !== ''){
         if(REGEX.PASSWORD.test(form.password)){
             formClass.password = success;
@@ -48,47 +58,60 @@ watchEffect(() => {
     }else{
         formClass.password = '';
     }
+
+    // Validation de la case à cocher
     if (form.checkbox) {
         formClass.checkbox = success 
     }else{
         formClass.checkbox = '';
     }
 })
+
+// Fonction exécutée avant la soumission du formulaire
 const beforeSubmit = async() => {
     errors.email = '';
     errors.password = '';
+
     try{
+        // Validation des données du formulaire
         await connectionValidation.validate(form, { abortEarly: false});    
         resp = authStore.auth(form.email, form.password, form.checkbox);
-    if (resp.code) {
-        alertClass.value = 'alert-success';
-        setTimeout(() => {
-            router.push('/')
-        }, 1000);
-        email.value = '';
-        form.password = '';
-    } else {
-        alertClass.value = 'alert-danger';
-        form.password = '';
-    }
-    respStatus.value = true;
+
+        if (resp.code) {
+            // Si l'authentification réussit, redirection vers la page d'accueil
+            alertClass.value = 'alert-success';
+            setTimeout(() => {
+                router.push('/')
+            }, 1000);
+            email.value = '';
+            form.password = '';
+        } else {
+            // Si l'authentification échoue, affichage d'une alerte
+            alertClass.value = 'alert-danger';
+            form.password = '';
+        }
+        respStatus.value = true;
     }catch(error) {
+        // En cas d'erreur de validation, affichage des messages d'erreur
         error.inner.forEach((e) => errors[e.path] = e.message);
         form.password = '';
     }
-
 }
+
+// Fonction exécutée après le montage du composant
 onMounted(() => {
+    // Si l'utilisateur est déjà connecté, redirection vers la page d'accueil
     if(authStore.isLogging){
         router.push('/');
     }
 });
 
+// Fonctions de mise à jour des données du formulaire
 const updateEmail = (value) => {
     form.email = value;
 }
+
 const updateCheck = (value) => {
-    console.log(value);
     form.checkbox = value;
 }
 </script>

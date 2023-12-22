@@ -1,35 +1,57 @@
 <script setup>
+// Importation des fonctions nécessaires de Vue.js
 import { ref, watchEffect, onBeforeMount } from 'vue';
+
+// Importation du composant EpisodeCharacter
 import EpisodeCharacter from './EpisodeCharacter.vue';
+
+// Importation du magasin d'état pour les favoris
 import { useFavoriteStore } from '@/stores/rickFavorite';
+
+// Initialisation du magasin d'état pour les favoris
 const favoriteStore = useFavoriteStore();
 
+// Définition des propriétés du composant avec la fonction defineProps
 const props = defineProps({
+    // La propriété episode est de type Object et est requise
     episode: {
         type: Object,
         required: true,
     }
 });
+
+// Création d'une propriété réactive favorite initialisée à null
 const favorite = ref(null);
+
+// Création d'une propriété réactive loading initialisée à false
 const loading = ref(false);
+
+// Définition d'une fonction loader pour activer le chargement
 const loader = () => {
     loading.value = true;
 }
 
+// Définition d'une fonction loadCharacter pour charger un personnage
 const loadCharacter = (character) => {
+    // Si le personnage est un objet, activer le chargement et retourner true
     if(typeof character === 'object'){
         loader();
         return true;
     }else{
+        // Sinon, retourner false
         return false;
     }
 }
 
+// Utilisation de watchEffect pour réagir aux changements de la propriété episode
 watchEffect(() => {
+    // Mise à jour de la valeur de favorite avec le favori correspondant à l'épisode
     favorite.value = favoriteStore.getFavorite('episode', props.episode);
 });
 
+// Utilisation de onBeforeMount pour initialiser la valeur de favorite avant le montage du composant
 onBeforeMount(() => {
+    // Recherche du favori correspondant à l'épisode dans le magasin d'état pour les favoris
     favorite.value = favoriteStore.favorite.find((value) =>value.type === 'episode' && value.data.id === props.episode.id);
 })
 </script>

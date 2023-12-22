@@ -3,7 +3,7 @@
 import { useEpisodeStore } from '@/stores/rickEpisode';
 import { onMounted, ref } from 'vue';
 import EpisodeItem from './EpisodeItem.vue';
-// Utilisation du store "rickCharacter"
+// Utilisation du store "episodeStore"
 const episodeStore = useEpisodeStore();
 
 // Exécution au moment du montage du composant

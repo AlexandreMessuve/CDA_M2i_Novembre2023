@@ -1,33 +1,59 @@
 <script setup>
+// Importation des fonctions nécessaires de Vue.js
 import { ref, reactive, watchEffect, onMounted } from 'vue';
+
+// Importation du magasin d'état pour l'authentification
 import { useAuthStore } from '../../stores/authentication.js';
+
+// Importation de la fonction useRouter de Vue Router pour la navigation
 import { useRouter } from 'vue-router';
+
+// Importation des expressions régulières pour la validation
 import * as REGEX from '../../constants/regex.js';
+
+// Importation du schéma de validation pour l'inscription
 import registerValidation from '../../yup/registerValidation.js';
+
+// Initialisation du routeur et du magasin d'état pour l'authentification
 const router = useRouter();
 const authStore = useAuthStore();
+
+// Création d'un objet réactif pour le formulaire d'inscription
 const form = reactive({
     email: '',
     username: '',
     password: '',
     confirmPass: ''
 });
+
+// Création d'un objet réactif pour les erreurs de validation du formulaire
 const errors = reactive({
     email: '',
     username: '',
     password: '',
     confirmPass: ''
 })
+
+// Création d'un objet réactif pour la réponse du serveur
 let resp = reactive({});
+
+// Création d'une propriété réactive pour le statut de la réponse
 const respStatus = ref(false);
+
+// Création d'une propriété réactive pour la classe d'alerte
 const alertClass = ref('');
+
+// Création d'un objet réactif pour les classes du formulaire
 const classForm = reactive({
     email: '',
     username: '',
     password: '',
     confirmPass: '',
 })
+
+// Utilisation de watchEffect pour réagir aux changements de la propriété respStatus
 watchEffect(() => {
+    // Définition des classes pour les champs du formulaire en fonction du statut de la réponse
     const classDanger = 'border-danger focus-ring-danger';
     const classSuccess = 'border-success focus-ring-success';
     if (form.email !== '') {
@@ -77,6 +103,14 @@ watchEffect(() => {
 
 });
 
+/**
+ * Fonction exécutée avant la soumission du formulaire d'inscription.
+ * Réinitialise les erreurs de validation.
+ * Effectue la validation du formulaire.
+ * Enregistre l'utilisateur si la validation réussit.
+ * Gère les réponses de succès ou d'échec de l'enregistrement.
+ * Gère les erreurs de validation.
+ */
 const beforeSubmit = async () => {
     errors.email = '';
     errors.username = '';
@@ -107,6 +141,11 @@ const beforeSubmit = async () => {
         form.confirmPass = '';
     }
 }
+
+/**
+ * Fonction exécutée lorsque le composant est monté.
+ * Redirige l'utilisateur vers la page d'accueil si une session est déjà active.
+ */
 onMounted(() => {
     if (authStore.isLogging) {
         router.push('/');

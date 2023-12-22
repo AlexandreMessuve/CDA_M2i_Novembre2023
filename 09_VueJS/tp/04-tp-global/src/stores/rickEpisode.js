@@ -31,5 +31,7 @@ export const useEpisodeStore = defineStore('episode', () => {
         episode.currentPage = page;
         await fetchData();
     }
+
+    // Retourner l'état et les méthodes pour interagir avec lui
     return  {episode, fetchData, changePage}
 })

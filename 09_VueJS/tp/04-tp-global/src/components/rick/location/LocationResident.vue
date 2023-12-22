@@ -1,14 +1,20 @@
 <script setup>
-import {ref} from 'vue';
+// Importation des dépendances nécessaires
+import { ref } from 'vue';
 import ModalCharacter from '../characters/ModalCharacter.vue';
 
+// Définition des propriétés attendues en tant que props
 const props = defineProps({
     character: {
         type: Object,
         required: true,
     }
 });
+
+// Déclaration d'une référence réactive pour afficher ou masquer le modal
 const showModal = ref(false);
+
+// Fonction pour mettre à jour l'état du modal
 const updateModal = (value) => {
     showModal.value = value;
 }

@@ -1,30 +1,51 @@
 <script setup>
+// Importation des fonctions nécessaires de Vue.js
 import { onBeforeMount, ref, watchEffect } from 'vue';
+
+// Importation du composant ModalCharacter
 import ModalCharacter from './ModalCharacter.vue';
+
+// Importation du magasin d'état pour les favoris
 import { useFavoriteStore } from '@/stores/rickFavorite';
+
+// Initialisation du magasin d'état pour les favoris
 const favoriteStore = useFavoriteStore();
 
+// Définition des propriétés du composant avec la fonction defineProps
 const props = defineProps({
+    // La propriété rick est de type Object et est requise
     rick: {
         type: Object,
         required: true,
     }
 });
 
+// Création d'une propriété réactive showModal initialisée à false
 const showModal = ref(false);
+
+// Définition d'une fonction updateModal pour mettre à jour la valeur de showModal
 const updateModal = (value) => {
     showModal.value = value;
 }
-const favorite = ref();
+
+// Création d'une propriété réactive favorite initialisée à null
+const favorite = ref(null);
+
+// Définition d'une fonction loadImg pour charger une image
 const loadImg = (e) => {
+    // Mise à jour de la source de l'image avec l'image de la propriété rick
     e.target.src = props.rick.image;
 }
 
+// Utilisation de watchEffect pour réagir aux changements de la propriété rick
 watchEffect(() => {
+    // Mise à jour de la valeur de favorite avec le favori correspondant au personnage rick
     favorite.value = favoriteStore.getFavorite('character', props.rick);
 });
 
+// Utilisation de onBeforeMount pour initialiser la valeur de favorite avant le montage du composant
 onBeforeMount(() => {
+    // Recherche du favori correspondant au personnage rick dans le magasin d'état pour les favoris
     favorite.value = favoriteStore.favorite.find((value) =>value.type === 'character' && value.data.id === props.rick.id);
 })
 </script>
