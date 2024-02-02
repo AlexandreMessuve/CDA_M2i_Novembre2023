@@ -14,6 +14,7 @@
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/10_Modelisation_base_de_donnees/cours" target="_self">Sur la modélisation de base de données</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/11_SQL/cours" target="_self">Sur le SQL</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/12_NoSQL/cours" target="_self">Sur le NoSQL</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/13_UML/cours" target="_self">Sur le UML</a></li>
 </ul>
 
 <p><strong>Les exercices :</strong></p>
@@ -31,4 +32,5 @@
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/10_Modelisation_base_de_donnees/exos" target="_self">Sur la modélisation de base de données</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/11_SQL/exo" target="_self">Sur le SQL</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/12_NoSQL/exo" target="_self">Sur le NoSQL</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/13_UML/exo" target="_self">Sur le UML</a></li>
 </ul>

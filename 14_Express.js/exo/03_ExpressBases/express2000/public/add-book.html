@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout de livre</title>
+</head>
+<body>
+    <h1>Ajout de livre</h1>
+    <form method="post" action="/books/add-book">
+        <div>
+            <label for="auteur">Auteur: </label>
+            <input required id="auteur" name="auteur" type="text" placeholder="Auteur">
+        </div>
+        <div>
+            <label for="titre">Titre du livre: </label>
+            <input required id="titre" name="titre" type="text" placeholder="titre">
+        </div>
+        <button type="submit">Ajout</button>
+    </form>
+</body>
+</html>
