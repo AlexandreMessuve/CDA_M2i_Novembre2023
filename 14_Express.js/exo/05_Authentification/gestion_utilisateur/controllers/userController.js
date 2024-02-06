@@ -46,18 +46,16 @@ const userController = {
                 res.status(400).json({message: "Tous les champs sont requis"});
             }
         } catch (e) {
-            res.status(400).json(error)
+            res.status(400).json(e)
         }
     },
 
     profile: async (req, res) => {
         try {
-            const token = req.headers.authorization.split(" ")[1];
-            const decodedToken = jwt.decode(token);
-            const userId = decodedToken.userId;
-            const user = await User.findOne({_id: userId});
+            const userId = req.auth.userId;
+            const user = await User.findById(userId);
 
-            res.status(200).json({id: user.id, email: user.email });// nom prenom ect .....
+            res.status(200).json({user});// nom prenom ect .....
 
         } catch (e) {
             res.status(400).json({error: e});
