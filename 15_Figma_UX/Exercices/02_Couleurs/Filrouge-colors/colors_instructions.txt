@@ -1,0 +1,3 @@
+Ce wireframe a été validé par le client pour l'interface de sa nouvelle application. 
+Celui-ci veut que le thème du site soit **orange** et en **dark mode**. 
+Proposez **un thème** pour le site sur cette base en essayant d'y inclure une couleur dominante, une complémentaire et un nuancier.

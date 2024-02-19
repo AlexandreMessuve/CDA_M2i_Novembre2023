@@ -50,8 +50,12 @@ const studentController = {
         const modifiedData = req.body;
         if (currentUserRoles.find(role => role === 'admin')){
             try{
-                await Student.update(modifiedData, {where: {id: id}});
-                res.status(204).json({message: 'Etudiant modifié avec succès'});
+                const status = await Student.update(modifiedData, {where: {id: id}});
+                if(status[0]){
+                    res.status(204).json({message: 'Etudiant modifié avec succès'});
+                }else{
+                    res.status(404).json({message: 'Erreur lors de la modification'});
+                }
             }
             catch (e) {
                 res.status(404).json({message: 'Erreur lors de la modification'});
@@ -65,11 +69,15 @@ const studentController = {
         const currentUserRoles = req.auth.roles;
         if (currentUserRoles.find(role => role === 'admin')){
             try{
-                await Student.destroy({where: {id: id}});
-                res.status(204).json({message: 'Etudiant supprimé avec succès'});
+                const status = await Student.destroy({where: {id: id}});
+                if(status[0]){
+                    res.status(204).json({message: 'Etudiant supprimé avec succès'});
+                }else{
+                    res.status(400).json({message: 'Erreur lors de la suppression'});
+                }
             }
             catch (e) {
-                res.status(404).json({message: 'Erreur lors de la suppression'});
+                res.status(400).json({message: 'Erreur lors de la suppression'});
             }
         }else {
             res.status(401).json({message: 'Vous n\'avez pas les droit pour supprimer'});
