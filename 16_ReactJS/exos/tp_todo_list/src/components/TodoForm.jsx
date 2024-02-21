@@ -1,5 +1,4 @@
 import {useRef} from "react";
-
 export const TodoForm = (props) => {
     const title = useRef();
     const description = useRef();
@@ -29,7 +28,7 @@ export const TodoForm = (props) => {
                     </div>
                     <div className={'m-3'}>
                         <label className={'text-center form-label'}>Descritpion</label>
-                        <textarea className={'form-control'}  ref={description} required={true}>
+                        <textarea className={'form-control'} rows={'7'} ref={description} required={true}>
 
                     </textarea>
                     </div>
@@ -37,7 +36,7 @@ export const TodoForm = (props) => {
                         <label className={'text-center form-label'}>DueDate</label>
                         <input className={'form-control'} ref={dueDate} name={'dueDate'} type={'date'} required={true}/>
                     </div>
-                    <div className={'m-3'}>
+                    <div className={'m-3 d-flex justify-content-end'}>
                         <button type={'submit'} className={'btn btn-outline-light'}>Add To Do</button>
                     </div>
                 </form>

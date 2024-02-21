@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {TodoForm} from "./components/TodoForm.jsx";
 import {TodoComponent} from "./components/TodoComponent.jsx";
 
