@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": "1983ffbb-46a4-483c-acb0-e97a06ac39c2",
+      "title": "Premier todo",
+      "description": "ouais\n",
+      "checked": "false"
+    },
+    {
+      "id": "a5a93fec-4747-4cfb-9e98-27b6da872644",
+      "title": "Second todo",
+      "description": "seconde description",
+      "checked": false
+    }
+  ]
+}
