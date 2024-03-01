@@ -9,10 +9,10 @@ const movieController = {
             res.status(400).json({error: e.message});
         }
     },
-    getMovieByTitle: async (req, res) => {
+    getMovieById: async (req, res) => {
         try {
-            const title = req.params.title;
-            const movie = await Movie.findOne({title: title});
+            const id = req.params.id;
+            const movie = await Movie.findOne({_id: id});
             res.status(200).json(movie);
         }catch (e) {
             res.status(400).json({error: e.message});
@@ -29,10 +29,20 @@ const movieController = {
         }
     },
 
+    updateMovie: async (req, res) => {
+      try {
+          const id = req.params.id;
+          const updateMovie = req.body;
+          await Movie.updateOne({_id: id}, {$set: {updateMovie}})
+          res.status(202).json({response: 'Success'});
+      }catch (e) {
+          res.status(400).json({error:e.message});
+      }
+    },
     deleteMovie: async (req, res) => {
         try {
-            const title = req.params.title;
-            await Movie.deleteOne({title: title});
+            const id = req.params.id;
+            await Movie.deleteOne({_id: id});
             res.status(200).json({response: 'Movie deleted successful'});
         }catch (e) {
             res.status(400).json({error: e.message});
