@@ -1,12 +1,24 @@
 import {Link, Outlet} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {removeUser} from "./store/authSlice.js";
+import {removeUser, verifToken} from "./store/authSlice.js";
 import {setFormMode} from "./store/albumSlice.js";
+import {useEffect} from "react";
 
 function App() {
-
+    const token = localStorage.getItem('token');
     const dispatch = useDispatch();
     const user = useSelector(state => state.auth.user);
+    const checkToken = () => {
+        if(token){
+            dispatch(verifToken(token));
+        }
+    }
+
+    useEffect(() => {
+        checkToken();
+        const interval = setInterval(checkToken, 10000);
+        return () => clearInterval(interval);
+    }, [token, dispatch]);
     return (
         <>
             <header>

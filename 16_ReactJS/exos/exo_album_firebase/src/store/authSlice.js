@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
+import {jwtDecode} from "jwt-decode";
 
 export const sign = createAsyncThunk("auth/sign", async (payload) => {
     try {
@@ -10,6 +11,21 @@ export const sign = createAsyncThunk("auth/sign", async (payload) => {
         return e;
     }
 });
+
+export const verifToken = createAsyncThunk('auth/logout', async (token) => {
+    try {
+        const decoded = jwtDecode(token);
+        const date = new Date();
+        if(decoded.exp * 1000 > date.getTime()){
+            return {
+                idToken: token,
+                ... decoded
+            }
+        }
+    }catch{
+        return false;
+    }
+})
 const authSlice = createSlice({
     name: "auth",
     initialState: {
@@ -17,12 +33,9 @@ const authSlice = createSlice({
         authMode: "Sign In",
     },
     reducers: {
-        setUser: (state, action) => {
-            state.user = action.payload;
-        },
         removeUser: (state) => {
-            state.user = null;
             localStorage.removeItem("token");
+            state.user = null;
         },
         setAuthMode: (state, action) => {
             state.authMode = action.payload;
@@ -36,8 +49,16 @@ const authSlice = createSlice({
         builder.addCase(sign.rejected, (state, action) => {
             console.log(action.payload);
         });
+        builder.addCase(verifToken.fulfilled, (state, action) => {
+            if(!state.user){
+                state.user = action.payload;
+            }
+        });
+        builder.addCase(verifToken.rejected, (state) => {
+            removeUser();
+        })
     }
 });
 
-export const { setUser, removeUser, setAuthMode } = authSlice.actions;
+export const {  removeUser, setAuthMode } = authSlice.actions;
 export default authSlice.reducer;
