@@ -1,6 +1,7 @@
 import { StyleSheet, View, Button, FlatList, Text, TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import FormArticle from './components/FormArticle';
+import ArticleItem from './components/ArticleItem';
 export default App = () => {
     const [courseList, setCourseList] = useState([{ "id": 1710232074582, "name": "Pain" }]);
     const [modal, setModal] = useState(false);
@@ -40,15 +41,7 @@ export default App = () => {
                 data={courseList}
                 renderItem={(courseList) => {
                     return (
-                        <View style={styles.listView}>
-                            <View style={styles.viewItem}>
-                                <Text style={styles.listText}>{(courseList.index + 1).toString()}-{courseList.item.name}</Text>
-                            </View>
-                            <View style={styles.viewItem}>
-                                <Button color={'red'} title='x' onPress={() => deleteItem(courseList.item.id)} />
-                            </View>
-
-                        </View>
+                        <ArticleItem index={courseList.index} article={courseList.item} />
                     )
                 }}
                 keyExtractor={(item) => item.id.toString()}
@@ -81,22 +74,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 30
     },
-    listText: {
-        color: 'white',
-        fontSize: 15
-    },
-    listView: {
-        flexDirection: 'row',
-        backgroundColor: 'purple',
-        margin: 3,
-        borderRadius: 35,
-        width: 400,
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'space-between'
-    },
-    viewItem: {
-        marginLeft: 30,
-        marginRight: 30
-    }
+
 });
