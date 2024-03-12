@@ -32,8 +32,8 @@ export default App = () => {
             </View>
             <Text style={styles.subTitle}>Ma liste de course :</Text>
             {
-                courseList.length <= 0 && (
-                    <Text style={styles.listText}>Aucun article dans la liste</Text>
+                courseList.length === 0 && (
+                    <Text style={styles.text}>Aucun article dans la liste</Text>
                 )
             }
             <FlatList
@@ -72,6 +72,9 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         marginBottom: 30
 
+    },
+    text: {
+        fontSize: 20
     },
     subTitle: {
         fontSize: 25,
