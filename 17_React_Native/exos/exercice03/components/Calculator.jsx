@@ -8,61 +8,61 @@ const Calculator = (props) => {
 
       <View style={styles.calculatorView}>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>-</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>AC</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>-</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>^</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>%</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>%</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>/</ButtonComponent>
-
-      </View>
-
-      <View style={styles.calculatorView}>
-
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>7</ButtonComponent>
-
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>8</ButtonComponent>
-
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>9</ButtonComponent>
-
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>*</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>/</ButtonComponent>
 
       </View>
 
       <View style={styles.calculatorView}>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>4</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>7</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>5</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>8</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>6</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>9</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>+</ButtonComponent>
-
-      </View>
-
-      <View style={styles.calculatorView}>
-
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>1</ButtonComponent>
-
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>2</ButtonComponent>
-
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>3</ButtonComponent>
-
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>-</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>*</ButtonComponent>
 
       </View>
 
       <View style={styles.calculatorView}>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>.</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>4</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>0</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>5</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>Del</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>6</ButtonComponent>
 
-        <ButtonComponent delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>=</ButtonComponent>
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>+</ButtonComponent>
+
+      </View>
+
+      <View style={styles.calculatorView}>
+
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>1</ButtonComponent>
+
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>2</ButtonComponent>
+
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>3</ButtonComponent>
+
+        <ButtonComponent resetExpression={props.resetExpression} delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>-</ButtonComponent>
+
+      </View>
+
+      <View style={styles.calculatorView}>
+
+        <ButtonComponent resetExpression={props.resetExpression}delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>.</ButtonComponent>
+
+        <ButtonComponent resetExpression={props.resetExpression}delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>0</ButtonComponent>
+
+        <ButtonComponent resetExpression={props.resetExpression}delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonNumber} stylePressed={styles.buttonNumberPressed} styleText={styles.numberText}>Del</ButtonComponent>
+
+        <ButtonComponent resetExpression={props.resetExpression}delExpression={props.delExpression} addToExpression={props.addToExpression} calculate={props.calculate} styleButton={styles.buttonOperator} stylePressed={styles.buttonOperatorPressed} styleText={styles.operatorText}>=</ButtonComponent>
         
       </View>
 

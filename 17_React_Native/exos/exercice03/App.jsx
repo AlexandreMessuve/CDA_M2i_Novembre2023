@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Calculator from './components/Calculator'
+import * as math from 'mathjs'
 
 const App = () => {
   const [result, setResult] = useState('0');
@@ -11,18 +12,27 @@ const App = () => {
   }
 
   const delExpression = () => {
+    const maxLength = expression.length;
+    if(maxLength === 1){
+      resetExpression();
+      return;
+    }
+    const newExpression = expression.substring(0,maxLength-1);
+    setExpression(newExpression);
+  }
+
+  const resetExpression = () => {
     setExpression('');
     setResult('0');
-
   }
   const calculate = () => {
     try{
-      const res = eval(expression)?.toString();
+      const res = math.evaluate(expression).toString();
       setResult(res);
       setExpression(res);
 
-    }catch{
-        console.log('error');
+    }catch (e){
+        console.log(e);
     }
   }
   useEffect(() => {
@@ -38,7 +48,7 @@ const App = () => {
       <View>
         <Text style={styles.number}>{result}</Text>
       </View>
-      <Calculator addToExpression={addToExpression} calculate={calculate} delExpression={delExpression}/>
+      <Calculator resetExpression={resetExpression} addToExpression={addToExpression} calculate={calculate} delExpression={delExpression}/>
     </View>
   )
 }

@@ -4,6 +4,9 @@ import React from 'react'
 const ButtonComponent = (props) => {
     const handlePress = () => {
         switch (props.children) {
+            case 'AC':
+                props.resetExpression();
+                break;
             case '=':
                 props.calculate();
                 break;
