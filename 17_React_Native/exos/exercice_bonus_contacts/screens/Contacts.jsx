@@ -1,19 +1,9 @@
 import { View, Text, StyleSheet, Button, FlatList } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ContactList from '../components/ContactList';
-
+import contactContext from '../context/contactContext';
 const Contacts = ({navigation}) => {
-    const [contacts, setContacts] = useState([]);
-    const addContact = (newContact) => {
-        setContacts([...contacts, newContact]);
-    }
-    const delContact = (idContact) => {
-        const newContacts = contacts.filter((contact) => contact.id !== idContact);
-        setContacts(newContacts);
-    }
-    useEffect(() => {
-        console.log(contacts);
-    }, [contacts])
+    const {contacts} = useContext(contactContext)
   return (
     <View style={styles.container}>
         <View style={styles.header}>
@@ -22,7 +12,7 @@ const Contacts = ({navigation}) => {
       <FlatList data={contacts} renderItem={({item}) => {
         console.log(item);
         return (
-            <ContactList contact={item} delContact={delContact} navigation={navigation} />
+            <ContactList contact={item} navigation={navigation} />
         )
       }} keyExtractor={(item) => item.id} ListEmptyComponent={() => {
         return(
@@ -30,7 +20,7 @@ const Contacts = ({navigation}) => {
         )
       }} style={styles.list}/>
       <View style={styles.button}>
-        <Button title={'Ajouter un contact'} onPress={() => navigation.navigate('FormContact', {addContact: addContact})}/>
+        <Button title={'Ajouter un contact'} onPress={() => navigation.navigate('FormContact')}/>
       </View>
     </View>
   )

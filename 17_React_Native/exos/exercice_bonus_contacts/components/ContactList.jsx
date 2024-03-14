@@ -1,9 +1,10 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import contactContext from '../context/contactContext';
 
-const ContactList = (props) => {
+const ContactList = ({contact, navigation}) => {
     const [pressed, setPressed] = useState(false);
-    const { contact, delContact, navigation } = props
+    const {delContact} = useContext(contactContext);
     return (
         <View>
             <Pressable style={({pressed}) => [styles.item, (pressed) && styles.itemPressed]} 

@@ -1,8 +1,9 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import contactContext from '../context/contactContext';
 
-const FormContact = ({navigation, route}) => {
-    const addContact = route.params.addContact
+const FormContact = ({navigation}) => {
+    const {addContact} = useContext(contactContext)
     const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
