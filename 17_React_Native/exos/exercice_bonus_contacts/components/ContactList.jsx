@@ -1,19 +1,25 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
-import iconRemove from '../assets/icones/iconRemove.png';
-import ContactItem from './ContactItem';
+
 const ContactList = (props) => {
-    const [modal, setModal] = useState(false);
-    const { contact, delContact } = props
+    const [pressed, setPressed] = useState(false);
+    const { contact, delContact, navigation } = props
     return (
         <View>
-            <Pressable style={({pressed}) => [styles.item, (pressed) && styles.itemPressed]} onPress={() => setModal(true)}>
-                <Text style={styles.itemText}>{contact.lastname} {contact.firstname}</Text>
-                <Pressable style={({ pressed }) => [(pressed) && styles.pressed]} onPressOut={() => delContact(contact.id)}>
-                    <Image style={styles.iconRemove} source={iconRemove} />
+            <Pressable style={({pressed}) => [styles.item, (pressed) && styles.itemPressed]} 
+            onPress={() => navigation.navigate('ContactDetail', {contact: contact})}>
+                <Text style={styles.itemText}>
+                    {contact.lastname} {contact.firstname}
+                </Text>
+                <Pressable 
+                style={styles.button} 
+                onPress={() => delContact(contact.id)}
+                onPressIn={() => setPressed(true)}
+                onPressOut={() => setPressed(false)}
+                >
+                   <Text style={[styles.iconRemove, pressed && styles.iconRemovePressed]}>X</Text>
                 </Pressable>
             </Pressable>
-            <ContactItem visible={modal} closeModal={() => setModal(false)} contact={contact} />
         </View>
     )
 }
@@ -23,30 +29,36 @@ export default ContactList
 const styles = StyleSheet.create({
     
     item: {
-        backgroundColor: '#B233FF',
-        width: 400,
-        height: 50,
-        marginHorizontal: 30,
-        borderRadius: 30,
+        width: '100%',
+        height: 80,
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: 20
+        borderColor: 'black',
+        borderBottomWidth: 3
     },
     itemText:{
         fontSize: 20,
         fontWeight: 'bold',
-        color: 'white'
+        marginLeft: 20,
+        color: 'white',
     },
     itemPressed: {
-        backgroundColor: '#8626C1'
+        backgroundColor: '#B233FF'
     },
     pressed: {
         backgroundColor: '#FF6E33',
         borderRadius: 10
     },
+    button: {
+        marginRight: 50
+    },
     iconRemove: {
-        height: 20,
-        width: 20
+        fontSize: 28,
+        fontWeight: '800',
+        color: 'red',
+    },
+    iconRemovePressed: {
+        color: 'orange'
     }
 })
