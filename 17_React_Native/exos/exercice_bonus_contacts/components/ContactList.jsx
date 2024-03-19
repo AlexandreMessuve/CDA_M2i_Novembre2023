@@ -1,24 +1,24 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useContext, useState } from 'react'
 import contactContext from '../context/contactContext';
-
-const ContactList = ({contact, navigation}) => {
+import Icon from 'react-native-vector-icons/FontAwesome6';
+const ContactList = ({username,id, navigation}) => {
     const [pressed, setPressed] = useState(false);
     const {delContact} = useContext(contactContext);
     return (
         <View>
             <Pressable style={({pressed}) => [styles.item, (pressed) && styles.itemPressed]} 
-            onPress={() => navigation.navigate('ContactDetail', {contact: contact})}>
+            onPress={() => navigation.navigate('ContactDetail', {contactId: id})}>
                 <Text style={styles.itemText}>
-                    {contact.lastname} {contact.firstname}
+                    {username}
                 </Text>
                 <Pressable 
                 style={styles.button} 
-                onPress={() => delContact(contact.id)}
+                onPress={() => delContact(id)}
                 onPressIn={() => setPressed(true)}
                 onPressOut={() => setPressed(false)}
                 >
-                   <Text style={[styles.iconRemove, pressed && styles.iconRemovePressed]}>X</Text>
+                   <Icon name={'trash-can'} size={25} style={[styles.iconRemove, pressed && styles.iconRemovePressed]} />
                 </Pressable>
             </Pressable>
         </View>

@@ -5,10 +5,10 @@ import contactContext from '../context/contactContext';
 const FormContact = ({navigation}) => {
     const {addContact} = useContext(contactContext)
     const [formData, setFormData] = useState({
+        username: '',
         firstname: '',
         lastname: '',
         phone: '',
-        address: ''
     });
 
     const handleChangeText = (index, value) => {
@@ -19,10 +19,10 @@ const FormContact = ({navigation}) => {
         if (condition) {
             addContact(formData);
             setFormData({
+                username: '',
                 firstname: '',
                 lastname: '',
                 phone: '',
-                address: '',
             })
             navigation.navigate('Contacts')
         } else {
@@ -39,10 +39,10 @@ const FormContact = ({navigation}) => {
             <View style={styles.view}>
                 <Text style={styles.title}>Ajouter un contact : </Text>
                 <View>
+                    <TextInput style={styles.input} value={formData.username} onChangeText={(text) => handleChangeText('username', text)} placeholder={'Username'} />
                     <TextInput style={styles.input} value={formData.firstname} onChangeText={(text) => handleChangeText('firstname', text)} placeholder={'Prénom'} />
                     <TextInput style={styles.input} value={formData.lastname} onChangeText={(text) => handleChangeText('lastname', text)} placeholder={'Nom'} />
                     <TextInput style={styles.input} value={formData.phone} onChangeText={(text) => handleChangeText('phone', text)} placeholder={'Téléphone'} />
-                    <TextInput style={styles.input} value={formData.address} onChangeText={(text) => handleChangeText('address', text)} placeholder={'Adresse'} />
                 </View>
 
                 <View style={styles.viewButton}>

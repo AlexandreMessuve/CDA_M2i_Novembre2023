@@ -12,16 +12,13 @@ const Contacts = ({navigation}) => {
       <FlatList data={contacts} renderItem={({item}) => {
         console.log(item);
         return (
-            <ContactList contact={item} navigation={navigation} />
+            <ContactList id={item.id} username={item.username} navigation={navigation} />
         )
       }} keyExtractor={(item) => item.id} ListEmptyComponent={() => {
         return(
             <Text style={styles.listText}>Aucun contact</Text>
         )
       }} style={styles.list}/>
-      <View style={styles.button}>
-        <Button title={'Ajouter un contact'} onPress={() => navigation.navigate('FormContact')}/>
-      </View>
     </View>
   )
 }
@@ -52,9 +49,6 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: 'white',
         textAlign: 'center'
-    },
-    button: {
-        margin: 40
     }
 })
 export default Contacts

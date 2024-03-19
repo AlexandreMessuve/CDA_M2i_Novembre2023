@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View, Pressable, Linking } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useContext, useLayoutEffect } from 'react'
+import contactContext from '../context/contactContext';
 
 const ContactDetail = ({navigation, route}) => {
-    const contact = route.params.contact;
-
+    const {contacts} = useContext(contactContext);
+    const id = route.params.contactId;
+    const contact = contacts.find((contact) => contact.id === id);
     const handleCallPhone = () => {
         Linking.openURL(`tel:${contact.phone}`)
     }
@@ -13,6 +15,10 @@ const ContactDetail = ({navigation, route}) => {
     })
   return (
     <View style={styles.container}>
+    <View style={styles.containerContact}>
+        <Text style={styles.textItem}>Username: </Text>
+        <Text style={styles.textContact}>{contact.username}</Text>
+    </View>
     <View style={styles.containerContact}>
         <Text style={styles.textItem}>Nom: </Text>
         <Text style={styles.textContact}>{contact.lastname}</Text>
@@ -24,10 +30,6 @@ const ContactDetail = ({navigation, route}) => {
     <View style={styles.containerContact}>
         <Text style={styles.textItem}>Telephone: </Text>
         <Text style={styles.textContact}>{contact.phone}</Text>
-    </View>
-    <View style={styles.containerContact}>
-        <Text style={styles.textItem}>Adresse: </Text>
-        <Text style={styles.textContact}>{contact.address}</Text>
     </View>
     <Pressable style={({pressed}) => [styles.return, (pressed) && styles.returnPressed]} onPress={handleCallPhone}>
         <Text style={styles.buttonText}>Appeler</Text>
