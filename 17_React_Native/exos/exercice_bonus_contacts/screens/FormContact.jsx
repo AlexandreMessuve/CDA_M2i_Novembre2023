@@ -15,7 +15,7 @@ const FormContact = ({navigation}) => {
         setFormData({ ...formData, [index]: value })
     }
     const handleSubmit = () => {
-        const condition = formData.firstname.length > 0 && formData.lastname.length > 0 && formData.phone.length > 0 && formData.address.length > 0
+        const condition = formData.firstname.length > 0 && formData.lastname.length > 0 && formData.phone.length > 0 && formData.username.length > 0
         if (condition) {
             addContact(formData);
             setFormData({

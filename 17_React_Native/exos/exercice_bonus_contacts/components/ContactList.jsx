@@ -2,9 +2,15 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useContext, useState } from 'react'
 import contactContext from '../context/contactContext';
 import Icon from 'react-native-vector-icons/FontAwesome6';
+import DeleteModal from './DeleteModal';
 const ContactList = ({username,id, navigation}) => {
     const [pressed, setPressed] = useState(false);
+    const [modal, setModal] = useState(false);
     const {delContact} = useContext(contactContext);
+
+    const closeModal = () => {
+        setModal(false)
+    }
     return (
         <View>
             <Pressable style={({pressed}) => [styles.item, (pressed) && styles.itemPressed]} 
@@ -14,13 +20,14 @@ const ContactList = ({username,id, navigation}) => {
                 </Text>
                 <Pressable 
                 style={styles.button} 
-                onPress={() => delContact(id)}
+                onPress={() => setModal(true)}
                 onPressIn={() => setPressed(true)}
                 onPressOut={() => setPressed(false)}
                 >
                    <Icon name={'trash-can'} size={25} style={[styles.iconRemove, pressed && styles.iconRemovePressed]} />
                 </Pressable>
             </Pressable>
+            <DeleteModal id={id} username={username} closeModal={closeModal} delContact={delContact} visibility={modal} />
         </View>
     )
 }
