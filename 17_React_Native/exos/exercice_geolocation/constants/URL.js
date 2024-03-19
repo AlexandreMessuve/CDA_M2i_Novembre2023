@@ -1,0 +1,1 @@
+export const GEO_POSITION_URL = 'http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?'
