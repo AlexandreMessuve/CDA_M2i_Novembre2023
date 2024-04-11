@@ -1,10 +1,23 @@
-import { Image, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-
+import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native'
+import React, { useContext} from 'react'
+import favoriteContext from '../context/favoriteContext'
+import Icon from 'react-native-vector-icons/AntDesign'
 const MealCard = ({ meal, navigation }) => {
+    const {favoriteList, addToFavorite, removeFavorite} = useContext(favoriteContext);
+    const currentFavorite = favoriteList.find((fav) => fav.id === meal.id);
+    const handleFavorite = () => {
+        if(currentFavorite?.isFavorite){
+            removeFavorite(meal.id);
+        }else{
+            addToFavorite(meal)
+        }
+    }
     return (
         <View style={styles.container}>
             <Pressable onPress={() => navigation.navigate('MealDetail', {meal: meal})}>
+                <Pressable onPress={handleFavorite} style={styles.favoriteIcon}>
+                        <Icon name={currentFavorite?.isFavorite ? 'heart' : 'hearto'} color={'red'} size={25} />
+                </Pressable>
                 <ImageBackground source={{ uri: meal.imageUrl }} style={styles.img} alt={meal.title} />
                 <View style={styles.textView}>
                     <Text style={styles.textTitle}>{meal.title}</Text>
@@ -28,6 +41,7 @@ const styles = StyleSheet.create({
         width: 400,
         marginVertical: 30,
         overflow: 'hidden',
+        backgroundColor: 'white',
     },
     img: {
         width: 400,
@@ -36,7 +50,7 @@ const styles = StyleSheet.create({
     textView: {
         width: 400,
         alignItems: 'center',
-        backgroundColor: 'white'
+
     },
     textTitle: {
         marginTop: 10,
@@ -45,5 +59,11 @@ const styles = StyleSheet.create({
     },
     text: {
         marginVertical: 10
+    },
+    favoriteIcon: {
+        position: 'absolute',
+        right: 5,
+        top: 210,
+        zIndex: 4
     }
 })

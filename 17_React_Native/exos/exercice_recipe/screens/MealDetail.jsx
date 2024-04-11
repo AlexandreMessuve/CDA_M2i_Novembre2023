@@ -1,13 +1,28 @@
-import { FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import { FlatList, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import DetailItem from '../components/DetailItem'
+import Icon from 'react-native-vector-icons/AntDesign'
+import favoriteContext from '../context/favoriteContext'
 
 const MealDetail = ({ navigation, route }) => {
   const meal = route.params.meal
-
+  const {favoriteList, addToFavorite, removeFavorite} = useContext(favoriteContext)
+  const currentFavorite = favoriteList.find((fav) => fav.id === meal.id);
+  const handleFavorite = () => {
+    if(currentFavorite?.isFavorite){
+        removeFavorite(meal.id);
+    }else{
+        addToFavorite(meal)
+    }
+}
   useLayoutEffect(() => {
-    navigation.setOptions({ title: `${meal.title} Detail` })
-  })
+    const buttonFavorite = () => (
+        <Pressable onPress={handleFavorite}>
+          <Icon size={30} name={currentFavorite?.isFavorite ? 'heart' : 'hearto'} color={'red'}></Icon>
+        </Pressable>
+    )
+    navigation.setOptions({ headerRight: buttonFavorite })
+  });
   return (
     <ScrollView >
       <View style={styles.container}>

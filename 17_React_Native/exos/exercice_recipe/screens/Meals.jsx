@@ -1,5 +1,5 @@
-import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
+import { FlatList, StyleSheet } from 'react-native'
+import React from 'react'
 import { MEALS } from '../data/data';
 import MealCard from '../components/MealCard';
 

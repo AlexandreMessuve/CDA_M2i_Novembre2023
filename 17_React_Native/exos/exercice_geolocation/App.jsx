@@ -9,6 +9,9 @@ const App = () => {
     const [longitude, setLongitude] = useState('');
     const [loader, setLoader] = useState(true);
     useEffect(() => {
+        fetchGps();
+    }, []);
+    const fetchGps = () => {
         Geolocation.requestAuthorization();
         Geolocation.getCurrentPosition(position => {
             setLatitude(position.coords.latitude)
@@ -16,10 +19,10 @@ const App = () => {
                 error => console.log(error),
                 { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
         });
-    }, []);
-
+    }
     const getCoords = async () => {
-        setLoader(true)
+        setLoader(true);
+        fetchGps();
         try {
             const data = await fetchGeoposition(latitude, longitude);
             setCoord(data);
