@@ -1,0 +1,1 @@
+export const URL_API = "https://api.magicthegathering.io/v1/";
