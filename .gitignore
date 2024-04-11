@@ -3,5 +3,3 @@ node_modules
 .idea
 .env
 firebaseConfig.js
-android
-ios
