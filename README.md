@@ -15,6 +15,10 @@
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/11_SQL/cours" target="_self">Sur le SQL</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/12_NoSQL/cours" target="_self">Sur le NoSQL</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/13_UML/cours" target="_self">Sur le UML</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/14_Express.js/cours" target="_self">Sur ExpressJS</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/15_Figma_UX/Support" target="_self">Sur Figma</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/16_ReactJS/demo" target="_self">Sur React JS</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/17_React_Native/demo" target="_self">Sur React Native</a></li>
 </ul>
 
 <p><strong>Les exercices :</strong></p>
@@ -33,4 +37,9 @@
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/11_SQL/exo" target="_self">Sur le SQL</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/12_NoSQL/exo" target="_self">Sur le NoSQL</a></li>
     <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/13_UML/exo" target="_self">Sur le UML</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/14_Express.js/exo" target="_self">Sur ExpressJS</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/15_Figma_UX/Exercices" target="_self">Sur Figma</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/16_ReactJS/exos" target="_self">Sur React JS</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/17_React_Native/exos" target="_self">Sur React Native</a></li>
+    <li><a href="https://github.com/AlexandreMessuve/CDA_M2i_Novembre2023/tree/main/18_Java" target="_self">Sur Java</a></li>
 </ul>
