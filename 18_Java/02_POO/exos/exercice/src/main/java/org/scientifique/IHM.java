@@ -109,13 +109,20 @@ public class IHM {
     private List<String> controlArray(String message,  String[] array){
         List<String> newArray = new ArrayList<>();
         String choice = "n";
+        int index = 0;
         while (!choice.equalsIgnoreCase("y")){
-            System.out.println(Arrays.toString(array));
-            String choiceArray = control(message, "[0-"+array.length+"]");
-            newArray.add(array[Integer.parseInt(choiceArray)]);
-            System.out.println(dash);
-            System.out.print("Voulez vous arreter la saisie ? y/N");
-            choice = scanner.nextLine();
+            for(var item : array){
+                System.out.println((index++)+"-"+item);
+            }
+            String choiceArray = control(message, "[0-9]+");
+            if(Integer.parseInt(choiceArray) <= array.length){
+                newArray.add(array[Integer.parseInt(choiceArray)]);
+                System.out.println(dash);
+                System.out.print("Voulez vous arreter la saisie ? y/N");
+                choice = scanner.nextLine();
+            }else{
+                System.out.println("Impossible car le numéro que vous avez saisie n'est pas possible");
+            }
             System.out.println(dash);
         }
         return newArray;
