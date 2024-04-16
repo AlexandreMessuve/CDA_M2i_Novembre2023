@@ -109,13 +109,14 @@ public class IHM {
     private List<String> controlArray(String message,  String[] array){
         List<String> newArray = new ArrayList<>();
         String choice = "n";
-        int index = 0;
+
         while (!choice.equalsIgnoreCase("y")){
+            int index = 0;
             for(var item : array){
                 System.out.println((index++)+"-"+item);
             }
             String choiceArray = control(message, "[0-9]+");
-            if(Integer.parseInt(choiceArray) <= array.length){
+            if(Integer.parseInt(choiceArray) < array.length){
                 newArray.add(array[Integer.parseInt(choiceArray)]);
                 System.out.println(dash);
                 System.out.print("Voulez vous arreter la saisie ? y/N");
