@@ -1,10 +1,10 @@
 package org.tp.papeterie;
 
-public class Ligne {
+public class Line {
     private Article article;
     private int quantity;
-    public Ligne(String refArticle, int quantity) {
-        this.article = BDD.getArticle(refArticle);
+    public Line(Article article, int quantity) {
+        this.article = article;
         this.quantity = quantity;
     }
 
