@@ -1,38 +1,28 @@
 package org.tp.papeterie;
 
-public class Lot extends Article{
-    private ArticleUnitaire article;
-    private int quantity;
-    private double pourcentRemise;
+import java.util.UUID;
 
-    public Lot(ArticleUnitaire article, int quantity, double pourcentRemise) {
+public class Lot extends Article{
+    private final UUID articleRef;
+    private final int quantity;
+    private final double pourcentRemise;
+
+    public Lot(UUID articleRef, int quantity, double pourcentRemise) {
         super();
-        this.article = article;
+        this.articleRef = articleRef;
         this.quantity = quantity;
         this.pourcentRemise = pourcentRemise;
     }
 
     public ArticleUnitaire getArticle() {
-        return article;
-    }
-
-    public void setArticle(ArticleUnitaire article) {
-        this.article = article;
+        return (ArticleUnitaire) BDD.getArticle(articleRef);
     }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public double getPourcentRemise() {
         return pourcentRemise;
-    }
-
-    public void setPourcentRemise(double pourcentRemise) {
-        this.pourcentRemise = pourcentRemise;
     }
 }

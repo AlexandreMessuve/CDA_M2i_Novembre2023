@@ -9,7 +9,7 @@ public abstract class Article {
         this.ref = UUID.randomUUID();
     }
 
-    public String getId(){
-        return ref.toString();
+    public UUID getRef(){
+        return ref;
     }
 }

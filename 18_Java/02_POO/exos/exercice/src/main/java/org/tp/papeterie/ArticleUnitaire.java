@@ -23,4 +23,9 @@ public abstract class ArticleUnitaire extends Article {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Ref : " + ref + " : " + name + " : " + price +"€ ";
+    }
 }

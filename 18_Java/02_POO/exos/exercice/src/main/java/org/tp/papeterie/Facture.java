@@ -1,6 +1,7 @@
 package org.tp.papeterie;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class Facture {
@@ -35,11 +36,11 @@ public class Facture {
                 this.client = client;
         }
 
-        public boolean addLine(String refArticle, int quantity){
+        public boolean addLine(UUID refArticle, int quantity){
                 if(lines.length < 10){
                         Article article = BDD.getArticle(refArticle);
                         Line[] newLines = new Line[lines.length + 1];
-                        Line line = new Line(article, quantity);
+                        Line line = new Line(article.getRef(), quantity);
                         for (int i = 0; i < lines.length ; i++) {
                                 newLines[i] = lines[i];
                         }
@@ -49,5 +50,22 @@ public class Facture {
                 }else {
                         return false;
                 }
+        }
+
+        public double getTotalPrice(){
+                double total = 0;
+                for(Line line : lines){
+                        total += line.getTotalPrice();
+                }
+                return total;
+        }
+
+        @Override
+        public String toString() {
+                return  "numeroFacture=" + numeroFacture + "\n"+
+                        ", client='" + client + '\n' +
+                        ", purchaseDate=" + purchaseDate.toString() + "\n"+
+                        ", lines=" + Arrays.toString(lines) + "\n"+
+                        "prix total=" + getTotalPrice() + "€";
         }
 }

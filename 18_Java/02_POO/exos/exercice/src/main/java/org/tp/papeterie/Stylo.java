@@ -15,4 +15,9 @@ public class Stylo extends ArticleUnitaire {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ":" + color;
+    }
 }
