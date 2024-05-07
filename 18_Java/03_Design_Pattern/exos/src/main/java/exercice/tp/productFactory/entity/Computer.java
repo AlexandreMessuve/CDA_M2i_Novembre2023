@@ -1,4 +1,4 @@
-package exercice.tp.entity;
+package exercice.tp.productFactory.entity;
 
 public class Computer extends Product{
     private String processor;

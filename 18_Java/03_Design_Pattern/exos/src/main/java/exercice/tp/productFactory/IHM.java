@@ -1,8 +1,11 @@
-package exercice.tp;
+package exercice.tp.productFactory;
 
-import exercice.tp.entity.*;
-import exercice.tp.factory.BicycleFactory;
-import exercice.tp.factory.ComputerFactory;
+import exercice.tp.productFactory.entity.Bicycle;
+import exercice.tp.productFactory.entity.Computer;
+import exercice.tp.productFactory.entity.Product;
+import exercice.tp.productFactory.entity.SmartPhone;
+import exercice.tp.productFactory.factory.BicycleFactory;
+import exercice.tp.productFactory.factory.ComputerFactory;
 
 import java.util.*;
 import java.util.regex.Pattern;

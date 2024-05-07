@@ -33,6 +33,12 @@ public class Enseignant extends Utilisateur{
 
     public deleteCours(UUID idCours, String sujet , String contenu){
         Optional<Cours> cours = Cours.listeCours.stream().filter(c -> c.getId() == idCours).findFirst(); // récupere le cours avec son id
+        if (cours.isPresent()) {
+            Cours deleteCours = cours.get();
+            deleteCours.setSujet(sujet);
+            deleteCours.setContenu(contenu);
+            return deleteCours;
+        }
     }
 
     

@@ -1,2 +1,8 @@
-package org.tp.hotel;public class Main {
+package org.tp.hotel;
+
+public class Main {
+    public static void main(String[] args) {
+        IHM ihm = new IHM();
+        ihm.start();
+    }
 }

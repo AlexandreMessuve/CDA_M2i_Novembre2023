@@ -1,5 +1,7 @@
 package org.tp.hotel.model;
 
+import java.text.DecimalFormat;
+
 public class Room {
     private final int number;
     private Status state;
@@ -48,6 +50,7 @@ public class Room {
 
     @Override
     public String toString() {
+        DecimalFormat df = new DecimalFormat("#.##");
         String status = "";
         if (state == Status.FREE_ROOM) {
             status = "Free";
@@ -56,7 +59,7 @@ public class Room {
         }
         return "Room n°"+ number +
                 "\n Status=" + status +
-                "\n Price=" + price +
+                "\n Price=" + df.format(price)+
                 "\n Beds=" + bedNumber;
     }
 }

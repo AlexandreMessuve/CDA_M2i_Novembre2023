@@ -1,4 +1,4 @@
-package exercice.tp.entity;
+package exercice.tp.productFactory.entity;
 
 public class SmartPhone  extends Product{
     private String color;

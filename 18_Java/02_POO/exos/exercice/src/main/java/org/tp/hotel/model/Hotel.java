@@ -9,6 +9,9 @@ public class Hotel {
     private final List<Room> rooms = new ArrayList<>();
     private final List<Client> clients = new ArrayList<>();
 
+    public Hotel(){
+        this.name = "";
+    }
     public Hotel(String name) {
         this.name = name;
     }

@@ -1,4 +1,4 @@
-package exercice.tp;
+package exercice.tp.productFactory;
 
 public class Main {
     public static void main(String[] args) {
