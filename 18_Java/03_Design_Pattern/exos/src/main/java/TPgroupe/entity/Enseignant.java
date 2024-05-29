@@ -38,7 +38,8 @@ public class Enseignant extends Utilisateur{
             deleteCours.setSujet(sujet);
             deleteCours.setContenu(contenu);
             return deleteCours;
-        }
+        } else
+            return null;
     }
 
     

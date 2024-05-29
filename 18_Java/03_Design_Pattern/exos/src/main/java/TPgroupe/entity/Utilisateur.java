@@ -23,7 +23,7 @@ public class Utilisateur implements Observer {
 
     @Override
     public void updateRessource(Ressource ressource) {
-        System.out.println("Une nouvelle ressource a été créée" +
+        System.out.println("Une nouvelle ressource a été créée");
     }
 
     @Override
