@@ -1,0 +1,21 @@
+FROM httpd
+
+LABEL version="1.0"
+
+RUN apt update && apt upgrade -y && apt install git -y
+
+WORKDIR /usr/local/apache2/htdocs
+
+RUN git clone https://github.com/AlexandreMessuve/le-prix-juste-game.git && mv ./le-prix-juste-game/* ./ && rm -r ./le-prix-juste-game
+
+EXPOSE 80
+
+CMD [ "httpd-foreground" ]
+
+# docker build -t le-prix-juste-jeu .
+
+# docker run -p 8000:80 --name le-prix-juste -d le-prix-juste-jeu
+
+# docker tag le-prix-juste-jeu alexandremessuvem2i/le-prix-juste-jeu:1.0
+
+# docker push alexandremessuvem2i/le-prix-juste-jeu:1.0
