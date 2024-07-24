@@ -26,4 +26,4 @@ docker run -p 8000:80 --name le-juste-prix -d le-prix-juste-jeu
 docker tag le-prix-juste-jeu alexandremessuvem2i/le-prix-juste-jeu:1.0
 docker push alexandremessuvem2i/le-prix-juste-jeu:1.0
 ```
-[Image my website nginx](https://hub.docker.com/r/alexandremessuvem2i/le-prix-juste-jeu)
+[Image my website apache](https://hub.docker.com/r/alexandremessuvem2i/le-prix-juste-jeu)
