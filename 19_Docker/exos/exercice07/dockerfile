@@ -1,6 +1,6 @@
 FROM httpd
 
-LABEL version="1.0"
+LABEL version="1.0" author="alexandre.messuves@gmail.com"
 
 RUN apt update && apt upgrade -y && apt install git -y
 

@@ -1,6 +1,6 @@
 FROM nginx
 
-LABEL version="1.0"
+LABEL version="1.0" author="alexandre.messuves@gmail.com"
 
 WORKDIR /usr/share/nginx/html
 
