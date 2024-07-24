@@ -1,0 +1,35 @@
+body{
+    background-color: #1E90FF;
+    color: white;
+}
+header{
+    text-align: center;
+}
+li{
+    margin: 0.4em;
+    list-style: none;
+    display: inline;
+}
+ul{
+    padding-left: 0;
+}
+a{
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    font-size: large;
+}
+a:active{
+    color: rgb(226, 226, 226);
+}
+
+#container-cat{
+    text-align: center;
+}
+#cat-picture{
+    margin: auto;
+    border-radius: 1vw;
+}

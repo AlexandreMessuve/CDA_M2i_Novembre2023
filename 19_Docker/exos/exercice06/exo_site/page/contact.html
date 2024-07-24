@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/contact.css">
+    <title>Site | Horaire</title>
+</head>
+
+<body>
+    <header>
+        <h1>Antoine DIEUDONNE</h1>
+        <h2>Contact</h2>
+        <nav>
+            <ul>
+                <li><a href="../index.html" target="_self" Active>Acceuil</a></li>
+                <li><a href="./horaire.html" target="_self">Horaires</a></li>
+                <li><a href="#" target="_self">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Qui etes vous ?</legend>
+                <label for="nom">Nom : </label>
+                <input name="nom" id="nom" placeholder="MARTIN" type="text" /><br />
+                <label for="prenom">Prénom : </label>
+                <input name="prenom" id="prenom" placeholder="John" type="text" /><br />
+                <label for="date">Date de naissance : </label>
+                <input name="date" id="date" type="date" /><br />
+                <label for="genre">Sexe : </label>
+                <input type="radio" name="genre" id="genre" value="homme">Homme
+                <input type="radio" name="genre" value="femme">Femme
+            </fieldset>
+            <fieldset>
+                <legend>Sujet de votre question</legend>
+                <label for="urgent">Est ce urgent ? </label>
+                <input type="checkbox" name="urgent" id="urgent" value="urgent"><br />
+                <label for="probleme">Type de problème : </label>
+                <select id="probleme">
+                    <optgroup label="Compte">
+                        <option value="connexion_impossible">Je n'arrive pas à acceder à mon compte</option>
+                        <option value="compte_pirater">Je crois que j'ai été piraté</option>
+                        <option value="compte_mdp_change_impossible">Je n'arrive pas à changer mon mot de passe
+                        </option>
+                        <option value="identifiants_perdu">J'ai perdu mes identifiants</option>
+                    </optgroup>
+                    <optgroup label="Achat">
+                        <option value="achat_erreur_confirmer">Je n'arrive pas à confirmer mon achat</option>
+                        <option value="livraison_nouvelles">J'aimerais avoir des nouvelles de ma livraison</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Commentaire</legend>
+                <label for="note">Notes :</label><br />
+                <textarea rows="15" cols="100"></textarea>
+            </fieldset>
+            <input type="submit" value="Envoyer ma question" />
+        </form>
+
+    </main>
+    <footer></footer>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+fieldset{
+    text-align: left;
+    margin: auto;
+    border-color: white;
+    border-radius: 9px;
+    width: 51.5em;
+}
+form{
+    text-align: center;
+    margin-top: 2em;
+    color: white;
+}
+
+label , input, select, textarea{
+    margin-bottom: 1em;
+}
+fieldset > label:first-of-type, input:first-of-type, textarea:first-of-type{
+margin-top: 1em;
+}
+textarea{
+    width: 100%;
+    resize: none;
+}
+input[type="submit"]{
+    background-color: #082AFF;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border-style: none;
+    padding: 0.5em;
+    margin-left: 53em;
+}
+input[type="submit"]:hover{
+    background-color: #5f74ff;
+}
