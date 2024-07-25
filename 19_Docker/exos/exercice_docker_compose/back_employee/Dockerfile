@@ -8,8 +8,6 @@ RUN mvn dependency:go-offline
 
 COPY src ./src
 
-ARG SPRING_PORT
-
 ENV SPRING_PORT=${SPRING_PORT}
 
 RUN mvn clean package -DskipTests
