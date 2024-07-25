@@ -1,0 +1,45 @@
+services:
+  db:
+    image: mysql
+    container_name: mysql_database
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - '3307:3306'
+    volumes:
+       - mysql-data:/var/lib/mysql
+    networks:
+      - exercice-mysql
+
+  interface:
+  #   image: phpmyadmin
+  #   container_name: phpmyadmin
+  #   restart: always
+  #   environment:
+  #     - PMA_HOST=mysql_database
+  #     - PMA_PORT=3306
+  #   ports:
+  #     - "8000:80"
+  #   depends_on:
+  #     - db
+  #   networks:
+  #     - exercice-mysql
+    image: dbeaver/cloudbeaver
+    container_name: dbeaver-exercice
+    restart: always
+    ports:
+      - "8000:8978"
+    depends_on:
+      - db
+    volumes:
+      - dbeaver-data:/opt/cloudbeaver/workspace
+    networks:
+      - exercice-mysql
+
+volumes:
+  mysql-data:
+  dbeaver-data:
+
+networks:
+  exercice-mysql:  
