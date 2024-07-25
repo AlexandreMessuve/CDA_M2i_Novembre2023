@@ -8,12 +8,16 @@ RUN mvn dependency:go-offline
 
 COPY src ./src
 
+ARG SPRING_PORT
+
+ENV SPRING_PORT=${SPRING_PORT}
+
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17-jdk-slim
 
 COPY --from=build /app/target/back_employee-0.0.1-SNAPSHOT.jar .
 
-EXPOSE 8090
+EXPOSE ${SPRING_PORT}
 
 ENTRYPOINT ["java", "-jar", "back_employee-0.0.1-SNAPSHOT.jar"]

@@ -3,8 +3,8 @@ services:
     image: mysql
     container_name: mysql-exercice_compose
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: employee-app
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=employee-app
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
@@ -26,15 +26,19 @@ services:
     build: 
       context: ./back_employee
       dockerfile: Dockerfile
+      args:
+         SPRING_PORT: 8090
     container_name: back_employee
+    environment:
+         DB_NAME: employee-app
+         DB_URL: mysql-exercice_compose:3306
+         DB_USERNAME: root
+         DB_PASSWORD: password
+         SPRING_PORT: 8090
     ports:
-      - "8080:8080"
+      - "8080:8090"
     depends_on:
       - mysql
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/employee-app
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: password
     networks:
       - exercice_docker_compose
   front:
