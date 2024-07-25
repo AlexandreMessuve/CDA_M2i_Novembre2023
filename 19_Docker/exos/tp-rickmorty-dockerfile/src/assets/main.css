@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap');
+
+@font-face {
+  font-family: 'rick';
+  src: url(./fonts/get_schwifty.ttf) format('truetype');
+}
+html, body{
+  height: 100%;
+}
+
+
+
+*{
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+}
+body{
+  background-color: #f6f6f6;
+}
+h1, h2, h3, h4, h5, h6, a{
+  font-family: 'rick',sans-serif;
+  color:#0EAECA !important;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #D3DB4A;
+
+}
+a{
+  text-decoration: none;
+}
+.nav-link:hover{
+  color: #129fb8 !important;
+}
+.active, .active:hover{
+  color: #1bc7e6 !important;
+}
