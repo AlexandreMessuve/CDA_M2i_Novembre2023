@@ -26,8 +26,6 @@ services:
     build: 
       context: ./back_employee
       dockerfile: Dockerfile
-      args:
-         SPRING_PORT: 8090
     container_name: back_employee
     environment:
          DB_NAME: employee-app
