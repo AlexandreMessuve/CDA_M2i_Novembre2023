@@ -1,0 +1,57 @@
+services:
+  mysql:
+    image: mysql
+    container_name: mysql-exercice_compose
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: employee-app
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - exercice_docker_compose
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin-exercice_compose
+    depends_on:
+      - mysql
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+    ports:
+      - "8010:80"
+    networks:
+      - exercice_docker_compose
+  back:
+    build: 
+      context: ./back_employee
+      dockerfile: Dockerfile
+    container_name: back_employee
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/employee-app
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+    networks:
+      - exercice_docker_compose
+  front:
+    build: 
+      context: ./front_employee
+      dockerfile: Dockerfile
+    container_name: front_employee
+    ports:
+      - '3000:80'
+    depends_on:
+      - back
+    networks:
+      - exercice_docker_compose
+
+
+
+networks:
+  exercice_docker_compose:
+volumes:
+  mysql-data:
