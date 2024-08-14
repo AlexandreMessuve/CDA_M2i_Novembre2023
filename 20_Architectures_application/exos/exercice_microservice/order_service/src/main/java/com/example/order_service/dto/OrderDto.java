@@ -1,14 +1,12 @@
 package com.example.order_service.dto;
 
 
-import com.example.order_service.entity.User;
-
 public class OrderDto {
     private int orderId;
-    private User user;
+    private UserDto user;
     private String productName;
 
-    public OrderDto(int orderId, User user, String productName) {
+    public OrderDto(int orderId, UserDto user, String productName) {
         this.orderId = orderId;
         this.user = user;
         this.productName = productName;
@@ -22,12 +20,12 @@ public class OrderDto {
         this.orderId = orderId;
     }
 
-    public User getUser() {
+    public UserDto getUser() {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserDto userDto) {
+        this.user = userDto;
     }
 
     public String getProductName() {

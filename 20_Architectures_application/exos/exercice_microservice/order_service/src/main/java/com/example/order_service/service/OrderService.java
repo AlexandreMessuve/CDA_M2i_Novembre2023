@@ -1,8 +1,8 @@
 package com.example.order_service.service;
 
 import com.example.order_service.dto.OrderDto;
+import com.example.order_service.dto.UserDto;
 import com.example.order_service.entity.Order;
-import com.example.order_service.entity.User;
 import com.example.order_service.repository.OderRepository;
 import com.example.order_service.restuser.UserService;
 import org.springframework.stereotype.Service;
@@ -41,7 +41,7 @@ public class OrderService {
     }
 
     private OrderDto orderToOrderDto(Order order) {
-        User user = userService.getUser(order.getUserId());
-        return new OrderDto(order.getId(), user, order.getProduct());
+        UserDto userDto = userService.getUser(order.getUserId());
+        return new OrderDto(order.getId(), userDto, order.getProduct());
     }
 }
