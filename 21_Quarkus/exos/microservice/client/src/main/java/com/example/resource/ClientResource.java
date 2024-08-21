@@ -1,5 +1,6 @@
 package com.example.resource;
 
+import com.example.dto.ClientPostDTO;
 import com.example.entity.Client;
 import com.example.service.ClientService;
 import jakarta.inject.Inject;
@@ -27,13 +28,13 @@ public class ClientResource {
     }
 
     @POST
-    public Response createClient(Client client) {
+    public Response createClient(ClientPostDTO client) {
         return Response.ok(clientService.createClient(client)).build();
     }
 
     @PUT
     @Path("/{id}")
-    public Response updateClient(@PathParam("id") Long id, Client client) {
+    public Response updateClient(@PathParam("id") Long id, ClientPostDTO client) {
         return Response.ok(clientService.updateClient(id, client)).build();
     }
 

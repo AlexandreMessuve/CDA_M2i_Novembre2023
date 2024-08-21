@@ -31,7 +31,7 @@ public class ClientService {
     }
 
     @Transactional
-    public ClientGetDTO updateClient(Long id, Client updatedClient) {
+    public ClientGetDTO updateClient(Long id, ClientPostDTO updatedClient) {
         Client client = getClientById(id);
         if (client != null) {
             client.setName(updatedClient.getName());

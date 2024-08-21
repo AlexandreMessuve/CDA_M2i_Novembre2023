@@ -4,25 +4,33 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
-import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.sql.Timestamp;
 
 @Component
-public class LogFilter extends OncePerRequestFilter {
+public class LogFilter implements Filter {
+
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("LogFilter");
-        String uri = request.getRequestURI();
-        System.out.println("uri: " + uri);
-        String method = request.getMethod();
-        System.out.println("method: " + method);
-        System.out.println("Timestamp: " + new Timestamp(System.currentTimeMillis()));
-        InetAddress ip = InetAddress.getLocalHost();
-        System.out.println("ipAddress: " + ip.getHostAddress());
-        filterChain.doFilter(request, response);
+    public void init(FilterConfig filterConfig) throws ServletException {
+        Filter.super.init(filterConfig);
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        System.out.println("Log filter");
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
+        String uri = req.getRequestURI();
+        String method = req.getMethod();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String ipClient = req.getRemoteAddr();
+        System.out.println("URI: " + uri + ", method: " + method + ", timestamp: " + timestamp + ", ipClient: " + ipClient);
+    }
+
+    @Override
+    public void destroy() {
+        Filter.super.destroy();
     }
 }
