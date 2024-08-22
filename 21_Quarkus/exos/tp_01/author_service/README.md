@@ -6,6 +6,8 @@
  - GET One Author **/authors/{id}**
  - GET Detail All Authors **/authors/detail**
  - GET Detail One Author **/authors/detail/{id}**
+ - GET Search Detail Author **/authors/detail/search?name=? or prefixName=?**
+ - GET Search Author **/authors/search?name=? or prefixName=?**
  - POST Create Author **/authors/add** 
  - PUT Update Author **/authors/{id}**
  - DELETE author **/authors/{id}**

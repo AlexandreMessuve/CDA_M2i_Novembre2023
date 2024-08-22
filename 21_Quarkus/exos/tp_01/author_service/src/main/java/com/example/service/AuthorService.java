@@ -38,6 +38,25 @@ public class AuthorService {
         return authorToAuthorGetDto(findAuthorById(id));
     }
 
+
+    public AuthorGetDto getAuthorByName(String name) {
+        return authorToAuthorGetDto(authorRepository.findByName(name));
+    }
+
+    public AuthorGetDetailDto getAuthorDetailByName(String name) {
+        return authorToAuthorGetDetailDto(authorRepository.findByName(name));
+    }
+
+    public AuthorGetDto getAuthorByPrefixName(String prefix) {
+        return authorToAuthorGetDto(authorRepository.findByPrefixName(prefix));
+    }
+
+    public AuthorGetDetailDto getAuthorDetailByPrefixName(String prefix) {
+        return authorToAuthorGetDetailDto(authorRepository.findByPrefixName(prefix));
+    }
+
+
+
     @Transactional
     public AuthorGetDto addAuthor(AuthorPostDto authorPostDto) {
         Author author = authorDtoToAuthor(authorPostDto);

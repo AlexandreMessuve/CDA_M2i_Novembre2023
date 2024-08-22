@@ -37,6 +37,30 @@ public class AuthorResource {
         return Response.ok(authorService.getAuthorById(id)).build();
     }
 
+    @GET
+    @Path("/search")
+    public Response getAuthorSearch(@QueryParam("name") String name, @QueryParam("prefixName") String prefixName){
+        if(prefixName != null && !prefixName.isEmpty()){
+            return Response.ok(authorService.getAuthorByPrefixName(prefixName)).build();
+        }
+        if(name != null && !name.isEmpty()){
+            return Response.ok(authorService.getAuthorByName(name)).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+
+    }
+    @GET
+    @Path("/detail/search")
+    public Response getAuthorDetailSearch(@QueryParam("name") String name, @QueryParam("prefixName") String prefixName){
+        if(prefixName != null && !prefixName.isEmpty()){
+            return Response.ok(authorService.getAuthorDetailByPrefixName(prefixName)).build();
+        }
+        if(name != null && !name.isEmpty()){
+            return Response.ok(authorService.getAuthorDetailByName(name)).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+
+    }
     @POST
     @Path("/add")
     public Response addAuthor(AuthorPostDto authorPostDto) {

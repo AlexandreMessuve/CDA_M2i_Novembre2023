@@ -6,4 +6,10 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class AuthorRepository implements PanacheRepository<Author> {
+    public Author findByName(String name) {
+        return find("name", name).firstResult();
+    }
+    public Author findByPrefixName(String prefix) {
+        return find("name like ?1", prefix+"%").firstResult();
+    }
 }
