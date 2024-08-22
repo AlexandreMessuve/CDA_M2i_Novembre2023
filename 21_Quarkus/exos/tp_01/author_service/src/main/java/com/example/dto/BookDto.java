@@ -12,6 +12,6 @@ public class BookDto {
     private String title;
     private String description;
     private String isbn;
-    private LocalDate publishedDate;
+    private LocalDate publishDate;
     private Long authorId;
 }
