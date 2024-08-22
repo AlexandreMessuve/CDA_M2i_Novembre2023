@@ -6,6 +6,7 @@
 - GET One Book **/books/{id}**
 - GET Detail All Books **/books/detail**
 - GET Detail One Book **/books/detail/{id}**
+- GET Search book **/books/search?authorId=... or title=...**
 - POST Create Book **/books/add**
 - PUT Update Book **/books/{id}**
 - DELETE Book **/books/{id}**
