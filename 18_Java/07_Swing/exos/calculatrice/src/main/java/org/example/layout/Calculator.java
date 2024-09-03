@@ -5,18 +5,20 @@ import lombok.Data;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
 
 @Data
 public class Calculator {
     private JTextField display;
     private JPanel panel;
     private String[] buttons = {
-            "7", "8", "9", "/",
-            "4", "5", "6", "*",
-            "1", "2", "3", "-",
-            "0", "C", "=", "+"
+            "C", "+/-", "%", "/",
+            "7", "8", "9", "*",
+            "4", "5", "6", "-",
+            "1", "2", "3", "+",
+            "0","", ",", "="
     };
-    private String currentInput = "";
+    private String currentInput = "0";
     private String operator = "";
     private double firstOperand = 0;
 
@@ -24,24 +26,57 @@ public class Calculator {
         display = new JTextField();
         display.setEditable(false);
         display.setHorizontalAlignment(JTextField.RIGHT);
-        display.setFont(new Font("Arial", Font.BOLD, 20));
-
+        display.setFont(new Font("Arial", Font.BOLD, 75));
+        display.setText("0");
+        display.setForeground(Color.WHITE);
+        display.setBackground(Color.DARK_GRAY);
         panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 4, 10, 10));
+        panel.setLayout(new BorderLayout());
+        panel.add(display, BorderLayout.NORTH);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.insets = new Insets(10, 10, 10, 10);
 
         for (String text : buttons) {
             JButton button = new JButton(text);
             button.setFont(new Font("Arial", Font.BOLD, 20));
             button.addActionListener(this::calculate);
-            panel.add(button);
+
+            if (text.equals("0")) {
+                constraints.gridwidth = 2;
+                constraints.gridx = 0;
+                constraints.gridy = 4;
+            }  else {
+                int index = Arrays.asList(buttons).indexOf(text);
+                constraints.gridwidth = 1;
+                constraints.gridx = index % 4;
+                constraints.gridy = index / 4;
+            }
+            button.setBackground(Color.DARK_GRAY);
+            button.setForeground(Color.WHITE);
+            buttonPanel.add(button, constraints);
         }
+        panel.setBackground(Color.BLACK);
+        panel.add(buttonPanel, BorderLayout.CENTER);
     }
 
-    private void calculate(ActionEvent e){
+    private void calculate(ActionEvent e) {
         String text = e.getActionCommand();
         if (text.matches("[0-9]")) {
-            currentInput += text;
+            if (currentInput.equals("0")) {
+                currentInput = text;
+            } else {
+                currentInput += text;
+            }
             display.setText(currentInput);
+        } else if (text.equals(",")) {
+            if (!currentInput.contains(".")) {
+                currentInput += ".";
+                display.setText(currentInput);
+            }
         } else if (text.matches("[/*\\-+]")) {
             if (!currentInput.isEmpty()) {
                 firstOperand = Double.parseDouble(currentInput);
@@ -62,8 +97,8 @@ public class Calculator {
                 currentInput = "";
             }
         } else if (text.equals("C")) {
-            currentInput = "";
-            display.setText("");
+            currentInput = "0";
+            display.setText("0");
         }
     }
 }
