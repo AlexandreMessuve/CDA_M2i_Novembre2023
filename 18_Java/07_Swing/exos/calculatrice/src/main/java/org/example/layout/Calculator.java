@@ -29,13 +29,14 @@ public class Calculator {
         display.setFont(new Font("Arial", Font.BOLD, 75));
         display.setText("0");
         display.setForeground(Color.WHITE);
-        display.setBackground(Color.DARK_GRAY);
+        display.setBackground(Color.BLACK);
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.add(display, BorderLayout.NORTH);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridBagLayout());
+        buttonPanel.setBackground(Color.BLACK);
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = GridBagConstraints.BOTH;
         constraints.insets = new Insets(10, 10, 10, 10);
@@ -44,7 +45,7 @@ public class Calculator {
             JButton button = new JButton(text);
             button.setFont(new Font("Arial", Font.BOLD, 20));
             button.addActionListener(this::calculate);
-
+            styleButton(button, text);
             if (text.equals("0")) {
                 constraints.gridwidth = 2;
                 constraints.gridx = 0;
@@ -55,13 +56,26 @@ public class Calculator {
                 constraints.gridx = index % 4;
                 constraints.gridy = index / 4;
             }
-            button.setBackground(Color.DARK_GRAY);
-            button.setForeground(Color.WHITE);
             buttonPanel.add(button, constraints);
         }
         panel.setBackground(Color.BLACK);
         panel.add(buttonPanel, BorderLayout.CENTER);
     }
+
+    private void styleButton(JButton button, String text) {
+        if (text.matches("[0-9]") || text.equals(",")) {
+            button.setBackground(Color.GRAY);
+            button.setForeground(Color.WHITE);
+        } else if (text.matches("[/*\\-+=]")) {
+            button.setBackground(Color.ORANGE);
+            button.setForeground(Color.DARK_GRAY);
+        } else if (text.matches("[C%]") || text.equals("+/-")) {
+            button.setBackground(Color.LIGHT_GRAY);
+            button.setForeground(Color.DARK_GRAY);
+            button.doClick();
+        }
+    }
+
 
     private void calculate(ActionEvent e) {
         String text = e.getActionCommand();

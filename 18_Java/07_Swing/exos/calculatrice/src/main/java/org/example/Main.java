@@ -15,7 +15,6 @@ public class Main {
         jFrame.setLocationRelativeTo(null);
         jFrame.setLayout(new BorderLayout());
         jFrame.add(calculator.getPanel());
-        jFrame.setBackground(Color.BLACK);
         jFrame.setVisible(true);
     }
 }
