@@ -7,21 +7,24 @@ import org.w3c.dom.ls.LSOutput;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class TablePanel extends JPanel {
     private JTable table;
+    private String[] columnNames = {
+            "Name",
+            "Email",
+            "Gender"
+    };
     private DefaultTableModel tableModel;
     private JDialog dialog;
 
     public TablePanel() {
         table = new JTable();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        tableModel = new DefaultTableModel();
-        tableModel.addColumn("Name");
-        tableModel.addColumn("Email");
-        tableModel.addColumn("Gender");
+        tableModel = new DefaultTableModel(columnNames, 0);
         table.setModel(tableModel);
         add(new JScrollPane(table));
         setBorder(BorderFactory.createTitledBorder("Table data"));
@@ -42,7 +45,7 @@ public class TablePanel extends JPanel {
     private void showDialog(String name, String email, String gender) {
         dialog = new JDialog();
         dialog.setTitle("Details");
-        dialog.setLayout(new GridLayout(3, 3));
+        dialog.setLayout(new GridLayout(3, 2));
         dialog.add(new JLabel("Name:"));
         dialog.add(new JLabel(name));
         dialog.add(new JLabel("Email:"));
