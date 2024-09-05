@@ -26,8 +26,13 @@ public class MainPanel extends JPanel {
 
     public MainPanel() {
         personDao = new PersonDao();
-        setLayout(new BorderLayout(4,4));
+        // load data in starting application
+        personDao.getAllPersons();
+
+        setLayout(new GridBagLayout());
+        GridBagConstraints gridConstraints = new GridBagConstraints();
         Insets insets = new Insets(4, 4, 4, 4);
+        gridConstraints.insets = insets;
 
         insertButton = new JButton("Insert");
         insertButton.addActionListener(e -> showDialog("Insert"));
@@ -38,35 +43,40 @@ public class MainPanel extends JPanel {
         selectButton = new JButton("Select");
         selectButton.addActionListener(e -> showDialog("Select"));
 
-        JPanel firstRow = new JPanel(new GridBagLayout());
-        firstRow.add(insertButton, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, insets, 0, 0));
-        firstRow.add(updateButton, new GridBagConstraints(1, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, insets, 0, 0));
-        firstRow.add(deleteButton, new GridBagConstraints(2, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, insets, 0, 0));
 
-        JPanel secondRow = new JPanel(new GridBagLayout());
-        secondRow.add(selectButton, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, insets, 0, 0));
+        gridConstraints.gridx = 0;
+        gridConstraints.gridy = 0;
+        add(insertButton, gridConstraints);
 
-        add(firstRow, BorderLayout.NORTH);
-        add(secondRow, BorderLayout.CENTER);
+        gridConstraints.gridx = 1;
+        add(updateButton, gridConstraints);
+
+        gridConstraints.gridx = 2;
+        add(deleteButton, gridConstraints);
+
+        gridConstraints.gridy = 1;
+        gridConstraints.gridx = 1;
+        add(selectButton, gridConstraints);
     }
 
     private void showDialog(String title) {
         JPanel panel = switch (title) {
             case "Insert" -> new InsertPanel(personDao);
             case "Update" -> new UpdatePanel(personDao);
-            case "Delete" -> new DeletePanel();
+            case "Delete" -> new DeletePanel(personDao);
             case "Select" -> new SelectPanel(personDao);
             default -> null;
         };
         dialog = new JDialog();
         dialog.setTitle(title);
         dialog.add(panel);
-        dialog.setLocationRelativeTo(null);
+        dialog.setLocationRelativeTo(this);
+        dialog.setResizable(false);
         switch (title){
-            case "Insert" -> dialog.setSize(200, 400);
-            case "Update" -> dialog.setSize(300, 300);
-            case "Delete" -> dialog.setSize(150, 200);
-            case "Select" -> dialog.setSize(500, 600);
+            case "Insert" -> dialog.setSize(300, 200);
+            case "Update" -> dialog.setSize(300, 250);
+            case "Delete" -> dialog.setSize(300, 150);
+            case "Select" -> dialog.setSize(350, 400);
         }
         dialog.setVisible(true);
     }

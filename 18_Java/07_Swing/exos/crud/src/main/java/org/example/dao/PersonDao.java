@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 public class PersonDao {
-    public void savePerson(Person person) {
+    public boolean savePerson(Person person) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
@@ -21,9 +21,32 @@ public class PersonDao {
                 transaction.rollback();
             }
             System.out.println(e.getMessage());
+            return false;
         }finally {
             System.out.println("Person saved successfully");
         }
+        return true;
+    }
+
+    public boolean deleteById(Long id){
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            Person person = session.get(Person.class, id);
+            if (person != null) {
+                session.remove(person);
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            System.out.println(e.getMessage());
+            return false;
+        } finally {
+            System.out.println("Person deleted successfully");
+        }
+        return true;
     }
 
     public List<Person> getAllPersons() {
