@@ -16,12 +16,11 @@ public class PersonDao {
             transaction = session.beginTransaction();
             session.merge(person);
             transaction.commit();
-            session.flush();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }finally {
             System.out.println("Person saved successfully");
         }

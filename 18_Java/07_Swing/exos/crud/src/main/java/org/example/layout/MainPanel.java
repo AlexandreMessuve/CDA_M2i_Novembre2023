@@ -2,6 +2,7 @@ package org.example.layout;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.example.dao.PersonDao;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +10,8 @@ import java.awt.*;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class MainPanel extends JPanel {
+
+    private final PersonDao personDao;
 
     private final JButton selectButton;
 
@@ -22,14 +25,16 @@ public class MainPanel extends JPanel {
 
 
     public MainPanel() {
+        personDao = new PersonDao();
         setLayout(new BorderLayout(4,4));
         Insets insets = new Insets(4, 4, 4, 4);
 
         insertButton = new JButton("Insert");
         insertButton.addActionListener(e -> showDialog("Insert"));
         updateButton = new JButton("Update");
-
+        updateButton.addActionListener(e -> showDialog("Update"));
         deleteButton = new JButton("Delete");
+        deleteButton.addActionListener(e -> showDialog("Delete"));
         selectButton = new JButton("Select");
         selectButton.addActionListener(e -> showDialog("Select"));
 
@@ -47,16 +52,22 @@ public class MainPanel extends JPanel {
 
     private void showDialog(String title) {
         JPanel panel = switch (title) {
-            case "Insert" -> new InsertPanel();
-            case "Update" -> new UpdatePanel();
+            case "Insert" -> new InsertPanel(personDao);
+            case "Update" -> new UpdatePanel(personDao);
             case "Delete" -> new DeletePanel();
-            case "Select" -> new SelectPanel();
+            case "Select" -> new SelectPanel(personDao);
             default -> null;
         };
         dialog = new JDialog();
         dialog.setTitle(title);
         dialog.add(panel);
-        dialog.setSize(500, 600);
+        dialog.setLocationRelativeTo(null);
+        switch (title){
+            case "Insert" -> dialog.setSize(200, 400);
+            case "Update" -> dialog.setSize(300, 300);
+            case "Delete" -> dialog.setSize(150, 200);
+            case "Select" -> dialog.setSize(500, 600);
+        }
         dialog.setVisible(true);
     }
 }

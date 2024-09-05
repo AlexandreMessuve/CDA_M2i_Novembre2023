@@ -18,9 +18,10 @@ public class SelectPanel extends JPanel {
             "Number"
     };
     private DefaultTableModel tableModel;
-    private final PersonDao personDao = new PersonDao();
+    private final PersonDao personDao;
 
-    public SelectPanel() {
+    public SelectPanel(PersonDao personDao) {
+        this.personDao = personDao;
         table = new JTable();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         tableModel = new DefaultTableModel(columnNames, 0);
