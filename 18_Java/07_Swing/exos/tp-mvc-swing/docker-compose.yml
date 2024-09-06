@@ -1,0 +1,14 @@
+services:
+  db:
+    container_name: tp-swing-mysql
+    image: mysql:lts
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tp-swing
+    ports:
+      - "3306:3306"
+    volumes:
+      - tp-swing-mysql:/var/lib/mysql
+
+volumes:
+  tp-swing-mysql:
