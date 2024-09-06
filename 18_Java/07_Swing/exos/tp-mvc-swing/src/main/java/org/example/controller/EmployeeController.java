@@ -82,7 +82,7 @@ public class EmployeeController {
                     employee.getFirstName(),
                     employee.getLastName(),
                     employee.getRole(),
-                    employee.getDepartment().getName()
+                    employee.getDepartment()
             });
         });
         return model;

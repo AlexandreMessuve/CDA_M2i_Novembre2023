@@ -57,7 +57,7 @@ public class DepartmentUI extends JPanel {
 
     }
 
-    private void loadDepartments() {
+    public void loadDepartments() {
         tableModel.setRowCount(0);
         tableModel = departmentController.getAllDepartmentsModel(tableModel);
     }

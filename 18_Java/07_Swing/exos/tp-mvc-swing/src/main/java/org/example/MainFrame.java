@@ -4,6 +4,7 @@ import org.example.view.DepartmentUI;
 import org.example.view.EmployeeUI;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
 
 public class MainFrame extends JFrame implements Runnable {
     public MainFrame() {
@@ -16,6 +17,14 @@ public class MainFrame extends JFrame implements Runnable {
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.addTab("Department", departmentUI);
         tabbedPane.addTab("Employee", employeeUI);
+        tabbedPane.addChangeListener(e -> {
+            int index = tabbedPane.getSelectedIndex();
+            if (index == 0) {
+                departmentUI.loadDepartments();
+            } else if (index == 1) {
+                employeeUI.loadEmployees();
+            }
+        });
         add(tabbedPane);
     }
 

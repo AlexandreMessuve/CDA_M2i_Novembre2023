@@ -3,7 +3,7 @@ services:
     container_name: tp-swing-mysql
     image: mysql:lts
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: tp-swing
     ports:
       - "3306:3306"

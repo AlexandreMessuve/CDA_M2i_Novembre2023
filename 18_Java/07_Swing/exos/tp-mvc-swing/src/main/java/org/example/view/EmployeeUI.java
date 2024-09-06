@@ -64,7 +64,7 @@ public class EmployeeUI extends JPanel {
         deleteButton.addActionListener(e -> deleteEmployee());
     }
 
-    private void loadEmployees() {
+    public void loadEmployees() {
         tableModel.setRowCount(0);
         tableModel = employeeController.getEmployeeModel(tableModel);
     }
