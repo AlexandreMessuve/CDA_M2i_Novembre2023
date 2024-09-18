@@ -1,0 +1,1 @@
+DELETE FROM Payment IF EXISTS;
